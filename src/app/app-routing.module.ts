@@ -9,7 +9,7 @@ import { ProductDetailsFormComponent } from './product-details-form/product-deta
 import { ProductDetailsIndexComponent } from './product-details-index/product-details-index.component';
 
 const routes: Routes = [
-  { path: '/', component: AppComponent },
+  { path: '', component: AppComponent },
   
   
   { path: 'customer-details', component: CustomerDetailsIndexComponent },
