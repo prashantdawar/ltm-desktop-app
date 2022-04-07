@@ -1,0 +1,74 @@
+<div class="container">
+    {{ model | json}}    <h1>Create Coupon Details</h1>
+    <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
+        <div class="form-group">
+            <label for="coupon_details_name">{{ model.attributeLabels().coupon_details_name }}</label>
+            <input type="text" name="coupon_details_name" id="coupon-details-coupon_details_name" class="form-control" [(ngModel)]="model.coupon_details_name" required>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="coupon_details_code">{{ model.attributeLabels().coupon_details_code }}</label>
+            <input type="text" name="coupon_details_code" id="coupon-details-coupon_details_code" class="form-control" [(ngModel)]="model.coupon_details_code" required>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_description">{{ model.attributeLabels().coupon_details_description }}</label>
+
+
+            <input type="text" name="coupon_details_description" id="coupon-detials-coupon_details_description" class="form-control" [(ngModel)]="model.coupon_details_description"_required>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_type">{{ model.attributeLabels().coupon_details_type }}</label>
+
+            <input type="text" name="coupon_details_type" id="coupon-details-coupon_details_type" class="form-control" [(ngModel)]="model.coupon_details_type" required>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_discount_amount">{{ model.attributeLabels().coupon_details_discount_amount }}</label>
+            <input type="text" name="coupon_details_discount_amount" id="coupon-details-coupon_details_discount_amount" class="form-control" [(ngModel)]="model.coupon_details_discount_amount" required>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_amount_min">{{ model.attributeLabels().coupon_details_amount_min }}</label>
+
+            <input type="text" name="coupon_details_amount_min" id="coupon-details-coupon_details_amount_min" class="form-control" [(ngModel)]="model.coupon_details_amount_min" required>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_amount_max">{{ model.attributeLabels().coupon_details_amount_max }}</label>
+            <input type="text" name="coupon_details_max" id="coupon-details-coupon_details_amount_max" class="form-control" [(ngModel)]="model.coupon_details_amount_max" required>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_discount_percentage">{{ model.attributeLabels().coupon_details_discount_percentage }}</label>
+            <input type="text" name="coupon_details_discount_percentage" id="coupon-details-coupon_details_discount_percentage" class="form-control" [(ngModel)]="model.coupon_details_discount_percentage" required>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_redeem_count_max">{{ model.attributeLabels().coupon_details_redeem_count_max }}</label>
+
+            <input type="text" name="coupon_details_redeem_count_max" id="coupon-details-coupon_details_redeem_count_max" class="form-control" [(ngModel)]="model.coupon_details_redeem_count_max" required>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_redeem_till">{{ model.attributeLabels().coupon_details_redeem_till }}</label>
+
+            <input type="text" name="coupon_details_redeem_till" id="coupon-details-coupon_details_redeem_till" class="form-control" [(ngModel)]="model.coupon_details_redeem_till" required>
+        </div>
+
+        
+        
+        <div class="form-group">
+            <label for="coupon_details_notes">{{ model.attributeLabels().coupon_details_notes }}</label>
+            <input type="text" name="coupon_details_notes" id="coupon-details-coupon_details_notes" class="form-control" [(ngModel)]="model.coupon_details_notes" required>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_notes_internal">{{ model.attributeLabels().coupon_details_notes_internal }}</label>
+            <textarea type="text" name="coupon_details_notes_internal" id="coupon-details-coupon_details_notes_internal" class="form-control" [(ngModel)]="model.coupon_details_notes_internal" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="coupon_details_status">{{ model.attributeLabels().coupon_details_status }}</label>
+            <textarea type="text" name="coupon_details_status" id="coupon-details-coupon_details_status" class="form-control" [(ngModel)]="model.coupon_details_status" required></textarea>
+        </div>
+      
+      
+      
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    
+</div>

@@ -1,0 +1,89 @@
+<div class="container">
+    {{ model | json}}    <h1>Create Customer Details</h1>
+    <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
+        <div class="form-group">
+            <label for="product_name">Product Name</label>
+            <input type="text" name="product_name" id="product-details-product_name" class="form-control" [(ngModel)]="model.product_name" required>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="product_brand_name">Brand Name</label>
+            <input type="text" name="product_brand_name" id="product-details-product_brand_name" class="form-control" [(ngModel)]="model.product_brand_name" required>
+        </div>
+        <div class="form-group">
+            <label for="product_category">Product Category</label>
+
+
+            <input type="text" name="product_category" id="product-details-product_category" class="form-control" [(ngModel)]="model.product_category"_required>
+        </div>
+        <div class="form-group">
+            <label for="product_type">Product Type</label>
+
+            <input type="text" name="product_type" id="product-details-product_type" class="form-control" [(ngModel)]="model.product_type" required>
+        </div>
+        <div class="form-group">
+            <label for="product_units">Product Units</label>
+            <input type="text" name="product_units" id="product-details-product_units" class="form-control" [(ngModel)]="model.product_units" required>
+        </div>
+        <div class="form-group">
+            <label for="product_quantity">Product Quantity</label>
+
+            <input type="text" name="product_quantity" id="product-details-product_quantity" class="form-control" [(ngModel)]="model.product_quantity" required>
+        </div>
+        <div class="form-group">
+            <label for="product_description">Product Description</label>
+            <input type="text" name="product_description" id="product-details-product_description" class="form-control" [(ngModel)]="model.product_description" required>
+        </div>
+        <div class="form-group">
+            <label for="product_notes">Notes</label>
+            <input type="text" name="product_notes" id="product-details-product_notes" class="form-control" [(ngModel)]="model.product_notes" required>
+        </div>
+        <div class="form-group">
+            <label for="product_notes_internal">Notes Internal</label>
+
+            <input type="text" name="product_notes_internal" id="product-details-product_notes_internal" class="form-control" [(ngModel)]="model.product_notes_internal" required>
+        </div>
+        <div class="form-group">
+            <label for="product_packaging_type">Packaging Type</label>
+
+            <input type="text" name="product_packaging_type" id="product-details-product_packaging_type" class="form-control" [(ngModel)]="model.product_packaging_type" required>
+        </div>
+
+        
+        
+        <div class="form-group">
+            <label for="product_stock_location">Stock Location</label>
+            <input type="text" name="product_stock_location" id="product-details-product_stock_location" class="form-control" [(ngModel)]="model.product_stock_location" required>
+        </div>
+        <div class="form-group">
+            <label for="product_status_enable">Product Status</label>
+            <textarea type="text" name="product_status_enable" id="product-details-product_status_enable" class="form-control" [(ngModel)]="model.product_status_enable" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="product_origin_country">Product Origin Country</label>
+            <textarea type="text" name="product_origin_country" id="product-details-product_origin_country" class="form-control" [(ngModel)]="model.product_origin_country" required></textarea>
+        </div>
+      
+      
+      
+
+
+
+        <div class="form-group">
+        
+        
+            <label for="product_imported">Product Imported</label>
+            <textarea type="text" name="product_imported" id="product-details-product_imported" class="form-control" [(ngModel)]="model.product_imported" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="product_condition">Product Condition</label>
+            <textarea type="text" name="product_condition" id="product-details-product_condition" class="form-control" [(ngModel)]="model.product_condition" required></textarea>
+        </div>
+      
+      
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>    
+</div>

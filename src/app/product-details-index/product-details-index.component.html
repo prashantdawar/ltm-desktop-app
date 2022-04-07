@@ -1,0 +1,35 @@
+<div class="container">
+    <br><br>
+    <a routerLink="/product-details/create" class="btn btn-success">Create Product Details</a>
+    <br><br>
+    <table class="table table-striped" *ngIf="models.length > 0">
+        <thead>
+            
+            
+            
+            
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                
+                <th scope="col">Product ID</th>
+                <th scope="col">Brand Name</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let model of models; let i = index">
+
+
+                <th scope="row">{{ i+1 }}</th>
+                <td>{{ model.product_name }}</td>
+                <td>{{ model.product_id }}</td>
+                <td>{{ model.product_brand_name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <button type="button" class="btn btn-success" (click)="getFromIndexDB()">Fetch Saved Data</button>
+    
+</div>
