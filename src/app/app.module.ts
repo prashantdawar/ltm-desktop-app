@@ -11,14 +11,15 @@ import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
 // import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CustomerDetailsIndexComponent } from './customer-details-index/customer-details-index.component';
+
 import { ProductDetailsFormComponent } from './product-details-form/product-details-form.component';
 import { ProductDetailsIndexComponent } from './product-details-index/product-details-index.component';
+
+
 import { CouponDetailsFormComponent } from './coupon-details-form/coupon-details-form.component';
 import { CouponDetailsIndexComponent } from './coupon-details-index/coupon-details-index.component';
-
-
-
-
+import { BootstrapFormInputComponent } from './widgets/bootstrap/bootstrap-form-input/bootstrap-form-input.component';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 const dbConfig: DBConfig = {
   name: 'web-db',
@@ -65,19 +66,26 @@ const dbConfig: DBConfig = {
     CustomerDetailsFormComponent,
     CustomerDetailsIndexComponent,
     ProductDetailsFormComponent,
+
+
     ProductDetailsIndexComponent,
     CouponDetailsFormComponent,
-    CouponDetailsIndexComponent
+
+    CouponDetailsIndexComponent,
+
+
+    BootstrapFormInputComponent
   ],
 
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     // CommonModule,
+  
+  
     FormsModule,
-
-
-
+    LoadingBarRouterModule,
     NgxIndexedDBModule.forRoot(dbConfig)
   ],
   providers: [],
