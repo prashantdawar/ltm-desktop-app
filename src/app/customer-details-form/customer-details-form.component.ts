@@ -8,19 +8,33 @@ import { CustomerDetails } from '../modals_data/customer_details';
 })
 
 
-
 export class CustomerDetailsFormComponent implements OnInit {
   model = new CustomerDetails();
+  breadcrumbItems: any[] = [];
 
   constructor(private dbService: NgxIndexedDBService) { }
 
 
 
   ngOnInit(): void {
+    this.breadcrumbItems = [{
+      'label': 'Home',
+      'urlTo': '',
+    },
+    {
+      'label': CustomerDetails.getClassLabel(),
+      'urlTo': '/customer-details'
+    },
+    {
+      'label': 'Create Customer Details',
+      'active': true
+    }
+    ];
+
   }
 
 
-  
+
   onSubmit(form: any): void {
     console.log('submit');
     // this.model.save();
@@ -29,8 +43,8 @@ export class CustomerDetailsFormComponent implements OnInit {
     this.model.beforeSave();
     if (data.customer_name) {
       this.dbService.add('customer_details', this.model)
-        
-      .subscribe((key) => {
+
+        .subscribe((key) => {
           console.log('key: ', key);
           form.reset();
         });

@@ -13,11 +13,21 @@ export class CustomerDetailsIndexComponent implements OnInit {
 
   
   models: CustomerDetails[] = [];
-  
+  breadcrumbItems: any[] = [];
   
   
   ngOnInit(): void {
-    this.getFromIndexDB();    
+    this.breadcrumbItems = [{
+      'label': 'Home',
+      'urlTo'  : '',
+    },
+    {
+      'label': CustomerDetails.getClassLabel(),
+      'active': true
+    }
+  ];
+    
+    this.getFromIndexDB();
   }
 
 

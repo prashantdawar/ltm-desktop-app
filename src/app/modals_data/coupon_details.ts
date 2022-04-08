@@ -54,4 +54,10 @@ export class CouponDetails extends ActiveRecord{
             'coupon_details_redeem_count_max': 'Redeem Count Max',
         }
     }
+
+    static getClassName(){ return 'CouponDetails' }
+    static getClassLabel(){ 
+        let className = this.getClassName();
+        return className.split(/(?=[A-Z])/).join(" ");
+     }
 }

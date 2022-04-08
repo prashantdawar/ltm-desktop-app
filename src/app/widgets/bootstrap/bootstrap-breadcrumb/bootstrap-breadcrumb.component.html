@@ -1,0 +1,14 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" *ngFor="let breadcrumbItem of breadcrumbItems"
+            [ngClass]="{'active': breadcrumbItem.active == true }">
+            <a routerLink="{{ breadcrumbItem.urlTo }}" *ngIf="breadcrumbItem.urlTo != undefined; else elseBlock">
+                {{ breadcrumbItem.label }}
+            </a>
+
+
+
+            <ng-template #elseBlock>{{ breadcrumbItem.label }}</ng-template>
+        </li>
+    </ol>
+</nav>

@@ -1,74 +1,102 @@
 <div class="container">
-    {{ model | json}}    <h1>Create Customer Details</h1>
+    <br>
+    <ngx-bootstrap-breadcrumb [breadcrumbItems]="breadcrumbItems"></ngx-bootstrap-breadcrumb>
+    <br>
+    {{ model | json}} <h1>Create Customer Details</h1>
     <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
+
+
+
+
         <div class="form-group">
             <label for="customer_name">Customer Name</label>
-            <input type="text" name="customer_name" id="customerName" class="form-control" [(ngModel)]="model.customer_name" required>
+
+
+            <input type="text" name="customer_name" id="customerName" class="form-control"
+                [(ngModel)]="model.customer_name" required>
         </div>
-
-
 
         <div class="form-group">
             <label for="customer_contact">Contact Name</label>
-            <input type="text" name="customer_contact" id="customerContact" class="form-control" [(ngModel)]="model.customer_contact" required>
+            <input type="text" name="customer_contact" id="customerContact" class="form-control"
+                [(ngModel)]="model.customer_contact" required>
         </div>
         <div class="form-group">
             <label for="customer_company_name">Company Name</label>
-
-
-            <input type="text" name="customer_company_name" id="customerCompanyName" class="form-control" [(ngModel)]="model.customer_company_name"_required>
+            <input type="text" name="customer_company_name" id="customerCompanyName" class="form-control"
+                [(ngModel)]="model.customer_company_name" _required>
         </div>
         <div class="form-group">
             <label for="customer_phone_number">Phone Number</label>
 
-            <input type="text" name="customer_phone_number" id="customerPhoneNumber" class="form-control" [(ngModel)]="model.customer_phone_number" required>
+
+            <input type="text" name="customer_phone_number" id="customerPhoneNumber" class="form-control"
+                [(ngModel)]="model.customer_phone_number" required>
         </div>
+
+
+
         <div class="form-group">
             <label for="customer_whatsapp_number">Whatsapp Number</label>
-            <input type="text" name="customer_contact" id="customerContact" class="form-control" [(ngModel)]="model.customer_whatsapp_number" required>
+            <input type="text" name="customer_contact" id="customerContact" class="form-control"
+                [(ngModel)]="model.customer_whatsapp_number" required>
         </div>
         <div class="form-group">
             <label for="customer_gst_number">GST Number</label>
 
-            <input type="text" name="customer_gst_number" id="customerGstNumber" class="form-control" [(ngModel)]="model.customer_gst_number" required>
+            <input type="text" name="customer_gst_number" id="customerGstNumber" class="form-control"
+                [(ngModel)]="model.customer_gst_number" required>
         </div>
+
         <div class="form-group">
             <label for="customer_status_enable">Status</label>
-            <input type="text" name="customer_status_enable" id="customerStatusEnable" class="form-control" [(ngModel)]="model.customer_status_enable" required>
+            <input type="text" name="customer_status_enable" id="customerStatusEnable" class="form-control"
+                [(ngModel)]="model.customer_status_enable" required>
         </div>
         <div class="form-group">
             <label for="customer_address_street">Address Street</label>
-            <input type="text" name="customer_address_street" id="customerAddressStreet" class="form-control" [(ngModel)]="model.customer_address_street" required>
+            <input type="text" name="customer_address_street" id="customerAddressStreet" class="form-control"
+                [(ngModel)]="model.customer_address_street" required>
         </div>
         <div class="form-group">
             <label for="customer_address_tehsil">Tehsil</label>
 
-            <input type="text" name="customer_address_tehsil" id="customerAddressTehsil" class="form-control" [(ngModel)]="model.customer_address_tehsil" required>
+            <input type="text" name="customer_address_tehsil" id="customerAddressTehsil" class="form-control"
+                [(ngModel)]="model.customer_address_tehsil" required>
         </div>
         <div class="form-group">
             <label for="customer_address_district">District</label>
 
-            <input type="text" name="customer_address_district" id="customerAddressDistrict" class="form-control" [(ngModel)]="model.customer_address_district" required>
+
+            <input type="text" name="customer_address_district" id="customerAddressDistrict" class="form-control"
+                [(ngModel)]="model.customer_address_district" required>
         </div>
 
-        
-        
+
+
         <div class="form-group">
             <label for="customer_address_pincode">PinCode</label>
-            <input type="text" name="customer_address_pincode" id="customerAddressPincode" class="form-control" [(ngModel)]="model.customer_address_pincode" required>
+            
+            
+            <input type="text" name="customer_address_pincode" id="customerAddressPincode" class="form-control"
+                [(ngModel)]="model.customer_address_pincode" required>
         </div>
         <div class="form-group">
+            
+            
             <label for="customer_notes">Notes</label>
-            <textarea type="text" name="customer_notes" id="customerNotes" class="form-control" [(ngModel)]="model.customer_notes" required></textarea>
+            <textarea type="text" name="customer_notes" id="customerNotes" class="form-control"
+                [(ngModel)]="model.customer_notes" required></textarea>
         </div>
         <div class="form-group">
             <label for="customer_notes_internal">Notes Internal</label>
-            <textarea type="text" name="customer_notes_internal" id="customerNotesInternal" class="form-control" [(ngModel)]="model.customer_notes_internal" required></textarea>
+            <textarea type="text" name="customer_notes_internal" id="customerNotesInternal" class="form-control"
+                [(ngModel)]="model.customer_notes_internal" required></textarea>
         </div>
-      
-      
-      
+
+
+
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
-    
+
 </div>

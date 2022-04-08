@@ -44,4 +44,13 @@ export class CustomerDetails extends ActiveRecord{
     constructor(){
         super();
     }
+
+
+
+
+   static getClassName(){ return 'CustomerDetails' };
+   static getClassLabel(){ 
+       let className = this.getClassName();
+       return className.split(/(?=[A-Z])/).join(" ");
+    }
 }
