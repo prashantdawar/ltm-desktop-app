@@ -22,7 +22,7 @@ export class CustomerDetailsFormComponent implements OnInit {
       'urlTo': '',
     },
     {
-      'label': CustomerDetails.getClassLabel(),
+      'label': this.model.getClassLabel(),
       'urlTo': '/customer-details'
     },
     {
@@ -38,10 +38,11 @@ export class CustomerDetailsFormComponent implements OnInit {
   onSubmit(form: any): void {
     console.log('submit');
     // this.model.save();
-
+    console.log("form value");
+    console.log(this.model);
     const data = form.value;
     this.model.beforeSave();
-    if (data.customer_name) {
+    if (this.model.customer_name) {
       this.dbService.add('customer_details', this.model)
 
         .subscribe((key) => {

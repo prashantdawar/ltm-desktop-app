@@ -22,7 +22,7 @@ export class CustomerDetailsIndexComponent implements OnInit {
       'urlTo'  : '',
     },
     {
-      'label': CustomerDetails.getClassLabel(),
+      'label': (new CustomerDetails()).getClassLabel(),
       'active': true
     }
   ];
