@@ -9,7 +9,7 @@ import { CustomerDetails } from '../modals_data/customer_details';
 
 
 export class CustomerDetailsFormComponent implements OnInit {
-  model = new CustomerDetails();
+  model: any = new CustomerDetails();
   breadcrumbItems: any[] = [];
 
   constructor(private dbService: NgxIndexedDBService) { }
@@ -49,8 +49,9 @@ export class CustomerDetailsFormComponent implements OnInit {
         .subscribe((key) => {
           console.log('key: ', key);
 
-          // form.reset(); // only working in template-driven form for fixed template.
-          // this.model = new CustomerDetails();
+          form.reset(); // only working in template-driven form for fixed template.
+          this.model = null;
+          this.model = new CustomerDetails();
         });
     } else {
 
