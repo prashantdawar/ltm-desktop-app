@@ -21,6 +21,7 @@ import { CouponDetailsIndexComponent } from './coupon-details-index/coupon-detai
 import { BootstrapFormInputComponent } from './widgets/bootstrap/bootstrap-form-input/bootstrap-form-input.component';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { BootstrapBreadcrumbComponent } from './widgets/bootstrap/bootstrap-breadcrumb/bootstrap-breadcrumb.component';
+import { BootstrapFormTextareaComponent } from './widgets/bootstrap/bootstrap-form-textarea/bootstrap-form-textarea.component';
 
 const dbConfig: DBConfig = {
   name: 'web-db',
@@ -75,7 +76,8 @@ const dbConfig: DBConfig = {
 
 
     BootstrapFormInputComponent,
-    BootstrapBreadcrumbComponent
+    BootstrapBreadcrumbComponent,
+    BootstrapFormTextareaComponent
   ],
 
 

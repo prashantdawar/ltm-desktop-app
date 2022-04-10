@@ -3,31 +3,32 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 
 @Component({
-  selector: 'ngx-bootstrap-form-input',
-  templateUrl: './bootstrap-form-input.component.html',
-  styleUrls: ['./bootstrap-form-input.component.css'],
-
-
-
+  selector: 'ngx-bootstrap-form-textarea',
+  templateUrl: './bootstrap-form-textarea.component.html',
+  styleUrls: ['./bootstrap-form-textarea.component.css'],
+  
+  
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
 
       multi: true,
-      useExisting: BootstrapFormInputComponent
+      useExisting: BootstrapFormTextareaComponent
     }
   ]
 })
 
+export class BootstrapFormTextareaComponent implements OnInit, ControlValueAccessor {
 
-export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor {
+
   id: string = "id";
   nameProp: string = "nameProp";
   labelFor: string = "nameProp";
-  type: string = "tex";
   disabled = false;
   value: any = "test";
   label: string = "label"; 
+
+
 
   @Input() model!: any;
   @Input() attribute!: any; 
@@ -52,20 +53,7 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
     this.nameProp = this.attribute;
     this.id = model.getClassName().split(/(?=[A-Z])/).map((name: string) => name.toLowerCase()).join("-");
 
-    // console.log("typeof");
-    // console.log(typeof model);
-    // console.log(this.id);
-    switch(typeof model[attribute]){
-      case 'string': this.type = "text"; break;
-      case 'number': this.type = "number"; break;
-      default: this.type = "text";
-    }
-    // console.log(" attribute: " + typeof model['customer_name']);
   }
-  // ngAfterViewInit(){
-  //   console.log(this.modelAttribute.constructor.name);
-  // }
-
 
   updateValue(event: any) {
     this.value = event.target.value;
@@ -73,12 +61,9 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
     this.onChange(this.value);
     this.onTouched();
   }
-
   
   writeValue(value: any): void {
     this.value = value;
-    
-    
   //   console.log("value: ")
   //   console.log(value);
   }

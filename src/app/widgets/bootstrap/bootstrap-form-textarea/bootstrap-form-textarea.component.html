@@ -1,0 +1,13 @@
+<div class="form-group" >
+    <label for="{{ nameProp }}"> {{ label }}</label>
+    <textarea name="{{nameProp}}" id="{{ id }}" class="form-control" value="{{ value }}" (keyup)="updateValue($event)" (change)="updateValue($event)" ></textarea>
+</div>
+
+<!-- {{ modelAttribute[0] | json}} -->
+
+
+
+
+<!-- <div *ngFor="let model of modelAttribute">
+    {{ model | json }}
+</div> -->
