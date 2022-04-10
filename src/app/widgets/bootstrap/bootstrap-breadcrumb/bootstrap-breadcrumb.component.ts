@@ -13,7 +13,7 @@ export class BootstrapBreadcrumbComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.breadcrumbItems);
+    // console.log(this.breadcrumbItems);
   }
 
 }

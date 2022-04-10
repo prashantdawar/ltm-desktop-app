@@ -4,11 +4,15 @@
     <br>
     {{ model | json}} <h1>Create Customer Details</h1>
     <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
-        <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_name'"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-input  name="'customer_name'" [model] = "model" [attribute] = "'customer_name'" [(ngModel)]="model.customer_name"></ngx-bootstrap-form-input>
 
 
 
-        <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_contact'"></ngx-bootstrap-form-input>
+        <!-- https://angular.io/api/forms/NgModel -->
+        <!-- <ngx-bootstrap-form-input  [model] = "model" [attribute] = "'customer_name'" [(ngModel)]="model.customer_name" [ngModelOptions]="{ name: 'customer_name' }"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-input  [name]="'customer_name'" [model] = "model" [attribute] = "'customer_name'" [(ngModel)]="model.customer_name"></ngx-bootstrap-form-input> -->
+        
+        <!-- <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_contact'"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_company_name'"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_phone_number'"></ngx-bootstrap-form-input>
 
@@ -24,7 +28,7 @@
         <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_address_state'"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_address_pincode'"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_notes'"></ngx-bootstrap-form-input>
-        <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_notes_internal'"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-input [model] = "model" [attribute] = "'customer_notes_internal'"></ngx-bootstrap-form-input> -->
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
     <!-- <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">

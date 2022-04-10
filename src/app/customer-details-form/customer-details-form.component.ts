@@ -30,8 +30,9 @@ export class CustomerDetailsFormComponent implements OnInit {
       'active': true
     }
     ];
-
+    // this.model.customer_name = "test customer name";
   }
+
 
 
 
@@ -39,17 +40,16 @@ export class CustomerDetailsFormComponent implements OnInit {
     console.log('submit');
     // this.model.save();
     console.log("form value");
-    console.log(this.model);
+    console.log(form);
     const data = form.value;
     this.model.beforeSave();
     if (this.model.customer_name) {
       this.dbService.add('customer_details', this.model)
-
         .subscribe((key) => {
           console.log('key: ', key);
           
           form.reset(); // only working in template-driven form for fixed template.
-          this.model = new CustomerDetails();
+          // this.model = new CustomerDetails();
         });
     } else {
 
