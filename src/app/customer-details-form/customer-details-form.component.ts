@@ -48,7 +48,7 @@ export class CustomerDetailsFormComponent implements OnInit {
         .subscribe((key) => {
           console.log('key: ', key);
           
-          form.reset(); // only working in template-driven form for fixed template.
+          // form.reset(); // only working in template-driven form for fixed template.
           // this.model = new CustomerDetails();
         });
     } else {

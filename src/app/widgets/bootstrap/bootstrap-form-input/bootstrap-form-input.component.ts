@@ -27,7 +27,7 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
   labelFor: string = "nameProp";
   type: string = "tex";
   disabled = false;
-  value = "test";
+  value: any = "test";
   label: string = "label"; 
 
   @Input() model!: any;
@@ -46,7 +46,7 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
     // console.log(this.model[this.attribute]);
     let model = this.model;
     let attribute = this.attribute;
-    this.type = "text";
+    // this.type = "text";
 
     // let modelClassName = model.getClassName();
     this.label = model.attributeLabels()[attribute];
@@ -56,32 +56,40 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
     // console.log("typeof");
     // console.log(typeof model);
     // console.log(this.id);
-
+    switch(typeof model[attribute]){
+      case 'string': this.type = "text"; break;
+      case 'number': this.type = "number"; break;
+      default: this.type = "text";
+    }
     // console.log(" attribute: " + typeof model['customer_name']);
   }
-
   // ngAfterViewInit(){
   //   console.log(this.modelAttribute.constructor.name);
   // }
-
-  onKey(event: any) {
+  updateValue(event: any) {
     this.value = event.target.value;
     console.log(this.value);
     this.onChange(this.value);
     this.onTouched();
   }
 
+  
   writeValue(value: any): void {
-
     this.value = value;
+    
+    
     console.log("value: ")
     console.log(value);
   }
 
+
+  
   registerOnChange(onChange: any): void {
     this.onChange = onChange;
   }
 
+  
+  
   registerOnTouched(onTouched: any): void {
     this.onTouched = onTouched;
   }

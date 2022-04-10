@@ -26,7 +26,7 @@ export class CustomerDetails extends ActiveRecord {
     public customer_address_tehsil: string = '';
     public customer_address_district: string = '';
     public customer_address_state: string = '';
-    public customer_address_pincode!: number;
+    public customer_address_pincode: number = 0;
     public customer_notes: string = '';
     public customer_notes_internal: string = '';
 
