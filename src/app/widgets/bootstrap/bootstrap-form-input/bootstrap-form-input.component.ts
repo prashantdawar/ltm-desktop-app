@@ -66,9 +66,11 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
   // ngAfterViewInit(){
   //   console.log(this.modelAttribute.constructor.name);
   // }
+
+
   updateValue(event: any) {
     this.value = event.target.value;
-    console.log(this.value);
+    // console.log(this.value);
     this.onChange(this.value);
     this.onTouched();
   }
@@ -78,11 +80,9 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
     this.value = value;
     
     
-    console.log("value: ")
-    console.log(value);
+  //   console.log("value: ")
+  //   console.log(value);
   }
-
-
   
   registerOnChange(onChange: any): void {
     this.onChange = onChange;

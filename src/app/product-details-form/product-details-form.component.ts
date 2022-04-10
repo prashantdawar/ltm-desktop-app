@@ -9,26 +9,27 @@ import { ProductDetails } from '../modals_data/product_details';
 })
 
 export class ProductDetailsFormComponent implements OnInit {
-model = new ProductDetails();
-  
-constructor(private dbService: NgxIndexedDBService) { }
+  model = new ProductDetails();
+  constructor(private dbService: NgxIndexedDBService) { }
+
 
   ngOnInit(): void {
   }
 
-  onSubmit(form: any){
+  onSubmit(form: any) {
     console.log(this)
 
     const data = form.value;
 
     this.model.beforeSave();
-    if(data.product_name){
+    if (data.product_name) {
       this.dbService
-      .add('product_details', this.model)
-      .subscribe((key) => {
-        console.log('key: ', key);
-        form.reset();
-      })
+        .add('product_details', this.model)
+        .subscribe((key) => {
+          console.log('key: ', key);
+          form.reset();
+        })
+        
     } else {
       console.log('Fill Fields');
     }

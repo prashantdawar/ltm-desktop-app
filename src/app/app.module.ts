@@ -24,9 +24,7 @@ import { BootstrapBreadcrumbComponent } from './widgets/bootstrap/bootstrap-brea
 
 const dbConfig: DBConfig = {
   name: 'web-db',
-  version: 3,
-
-
+  version: 2,
   objectStoresMeta: [{
     store: 'customer_details',
     storeConfig: { keyPath: 'customer_id', autoIncrement: true },
@@ -34,10 +32,11 @@ const dbConfig: DBConfig = {
       {
         name: 'customer_name',
         keypath: 'customer_name',
-        options: { unique: true }
+        options: { unique: false }
       }
     ]
-  }, {
+  },
+  {
 
 
     store: 'product_details',
@@ -76,16 +75,16 @@ const dbConfig: DBConfig = {
 
 
     BootstrapFormInputComponent,
-      BootstrapBreadcrumbComponent
+    BootstrapBreadcrumbComponent
   ],
 
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     // CommonModule,
-  
-  
+
+
     FormsModule,
     LoadingBarRouterModule,
     NgxIndexedDBModule.forRoot(dbConfig)

@@ -44,10 +44,11 @@ export class CustomerDetailsFormComponent implements OnInit {
     const data = form.value;
     this.model.beforeSave();
     if (this.model.customer_name) {
-      this.dbService.add('customer_details', this.model)
+      this.dbService
+        .add('customer_details', this.model)
         .subscribe((key) => {
           console.log('key: ', key);
-          
+
           // form.reset(); // only working in template-driven form for fixed template.
           // this.model = new CustomerDetails();
         });
