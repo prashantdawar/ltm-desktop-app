@@ -19,7 +19,7 @@ export class CustomerDetails extends ActiveRecord {
     public customer_email: string = '';
     public customer_gst_number: string = '';
     public customer_due: string = '';
-    public customer_status_enable: string = '';
+    public customer_status_enable: number = 0;
 
     public customer_category: string = '';
     public customer_address_street: string = '';
@@ -50,10 +50,10 @@ export class CustomerDetails extends ActiveRecord {
 
     rules(){
         return [
-            [['customer_name', 'customer_contact', 'customer_company_name'], 'required'],
-            [['customer_name', 'customer_contact', 'customer_company_name', 'customer_code','customer_phone_number', 'customer_whatsapp_number', 'customer_email', 'customer_gst_number', 'customer_address_street', 'customer_address_tehsil', 'customer_address_district', 'customer_address_state', 'customer_address_pincode', 'customer_notes', 'customer_notes_internal'], 'string'],
+            [['customer_name', 'customer_contact', 'customer_company_name', 'customer_address_pincode', 'customer_status_enable'], 'required'],
+            [['customer_name', 'customer_contact', 'customer_company_name', 'customer_code','customer_phone_number', 'customer_whatsapp_number', 'customer_email', 'customer_gst_number', 'customer_address_street', 'customer_address_tehsil', 'customer_address_district', 'customer_address_state', 'customer_notes', 'customer_notes_internal'], 'string'],
 
-            [['customer_due', 'customer_status_enable'], 'integer']
+            [['customer_due', 'customer_status_enable', 'customer_address_pincode'], 'integer']
         ]
     }
     attributeLabels() {

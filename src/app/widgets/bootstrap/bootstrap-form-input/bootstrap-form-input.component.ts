@@ -140,12 +140,12 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
               };
             }
               break;
-            case 'number': if (typeof value != "number") {
+            case 'integer': if (typeof value != "number") {
               errorsObj[this.attribute] = {
                 currentType: typeof value,
                 currentValue: value,
                 expectedType: 'number',
-                errMsg: 'number'
+                errMsg: 'Number Only'
               };
             }
               break;
