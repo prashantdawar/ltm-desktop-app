@@ -1,6 +1,6 @@
-export class ModelDataFormat{
-    static getClassName() {}
-    static getClassLabel() {}
-    attributeLabels(){}
-
+export interface ModelDataFormat{
+    getClassName(): string;
+    getClassLabel(): string;
+    attributeLabels(): any;
+    rules(): any;
 }

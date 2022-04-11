@@ -119,7 +119,7 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
   validate(control: AbstractControl): ValidationErrors | null {
     const value = control.value;
     console.log(value);
-
+    let skipSubArrayForEach = false;
     let errorsObj: any = {};
     let modelRulesArray = this.model.rules();
     // console.log(modelRulesArray);
@@ -130,6 +130,7 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
         subArray.forEach((subArrayItem: any, index: number) => {
           if (index == 0) return;
 
+          if(skipSubArrayForEach) return;
           switch (subArrayItem) {
             case 'string': if (typeof value != "string") {
               errorsObj[this.attribute] = {
@@ -157,8 +158,10 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
                 errMsg: 'Field is marked as required'
               };
             }
+            skipSubArrayForEach = true;
               break;
           }
+          console.log(errorsObj);
         });
 
       }

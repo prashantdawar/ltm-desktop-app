@@ -1,6 +1,7 @@
 import { ActiveRecord } from "../modals_core/ActiveRecord";
+import { ModelDataFormat } from "../modals_core/ModelDataFormat";
 
-export class CustomerDetails extends ActiveRecord {
+export class CustomerDetails extends ActiveRecord implements ModelDataFormat {
     public customer_id?: number;
     public customer_uid?: number;
     public customer_name: string = '';

@@ -7,11 +7,15 @@
       "type": "pwa-chrome",
       "request": "launch",
       "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "url": "http://localhost:4200/",
+      // https://stackoverflow.com/questions/60255906/how-to-close-the-task-terminal-automatically-after-vscode-debugging
+      // "postDebugTask": "postDebug"
     },
     {
       "name": "ng test",
       "type": "chrome",
+ 
+ 
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
