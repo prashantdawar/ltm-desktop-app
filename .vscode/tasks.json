@@ -37,20 +37,6 @@
           }
         }
       }
-    },
-    {
-      "label": "postDebug",
-      "type": "process",
-      "command": "echo ${input:terminate}",
-    }
-  ],
-  "inputs": [
-    {
-      "id": "terminate",
-    
-      "type": "command",
-      "command": "workbench.action.tasks.terminate",
-      "args": "terminateAll"
     }
   ]
 }

@@ -11,13 +11,16 @@
     "sef": "electron-forge start",
     "se": "ng build --base-href ./ && electron .",
     "package": "electron-forge package",
+    
     "make": "electron-forge make",
     "test": "ng test"
   },
+
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.3.0",
     "@angular/common": "~13.3.0",
+    
     "@angular/compiler": "~13.3.0",
     "@angular/core": "~13.3.0",
     "@angular/forms": "~13.3.0",
@@ -26,10 +29,13 @@
     "@angular/router": "~13.3.0",
     "@ngx-loading-bar/router": "^6.0.2",
     "bootstrap": "^4.6.0",
+    
     "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.6.0",
     "ngx-indexed-db": "^10.0.0",
     "rxjs": "~7.5.0",
+    
+    
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -41,6 +47,7 @@
     "@electron-forge/maker-deb": "^6.0.0-beta.63",
     "@electron-forge/maker-rpm": "^6.0.0-beta.63",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    
     "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
@@ -59,6 +66,8 @@
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
+          
+          
           "config": {
             "name": "web_app"
           }
