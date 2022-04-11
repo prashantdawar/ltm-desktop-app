@@ -22,27 +22,27 @@ import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR
     }
   ]
 })
-
 export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor, Validator {
   id: string = "id";
   nameProp: string = "nameProp";
   labelFor: string = "nameProp";
   type: string = "tex";
   disabled = false;
+  is_touched: boolean = false;
 
+  valid: boolean = false;
+  validationMessage: string = "";
   value: any = "test";
   label: string = "label";
+  
+  
   required: any = null;
-
-
-
   @Input() model: any;
   @Input() attribute!: any;
   @Input() ngModel: any;
   @Output() ngModelChange = new EventEmitter();
 
   constructor() { }
-
   onChange = (value: any) => { };
   onTouched = () => { };
 
@@ -84,8 +84,12 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
   // }
 
 
-  onBlur(event: any) {
+  touched(){
     this.onTouched();
+    this.is_touched = true;
+  }
+  onBlur(event: any) {
+    this.touched();
   }
 
   updateValue(event: any) {
@@ -93,7 +97,8 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
     // console.log(this.value);
 
     this.onChange(this.value);
-    this.onTouched();
+    // this.onTouched();
+    this.touched();
   }
 
   writeValue(value: any): void {
@@ -149,7 +154,7 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
                 currentType: typeof value,
                 currentValue: value,
                 required: true,
-                reqErrMsg: 'Field is marked as required'
+                errMsg: 'Field is marked as required'
               };
             }
               break;
@@ -159,6 +164,14 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
       }
     });
     console.log(errorsObj);
+
+    if(Object.keys(errorsObj).length == 0){
+      this.valid = true;
+      this.validationMessage = "";
+    } else {
+      this.valid = false;
+      this.validationMessage = errorsObj[this.attribute].errMsg;
+    }
 
     return Object.keys(errorsObj).length > 0 ? errorsObj : null;
     // return {'test': 'test'};
