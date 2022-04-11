@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
+import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
 
 @Component({
   selector: 'ngx-bootstrap-form-input',
@@ -15,30 +14,37 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
       multi: true,
       useExisting: BootstrapFormInputComponent
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: BootstrapFormInputComponent
     }
   ]
 })
 
-
-export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor {
+export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor, Validator {
   id: string = "id";
   nameProp: string = "nameProp";
   labelFor: string = "nameProp";
   type: string = "tex";
   disabled = false;
-  value: any = "test";
-  label: string = "label"; 
 
-  @Input() model!: any;
-  @Input() attribute!: any; 
+  value: any = "test";
+  label: string = "label";
+  required: any = null;
+
+
+
+  @Input() model: any;
+  @Input() attribute!: any;
   @Input() ngModel: any;
   @Output() ngModelChange = new EventEmitter();
 
-
   constructor() { }
-    
+
   onChange = (value: any) => { };
-  onTouched = () => {};
+  onTouched = () => { };
 
   ngOnInit(): void {
     // let className = this.modelAttribute.constructor.name;
@@ -55,46 +61,107 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
     // console.log("typeof");
     // console.log(typeof model);
     // console.log(this.id);
-    switch(typeof model[attribute]){
+    switch (typeof model[attribute]) {
       case 'string': this.type = "text"; break;
       case 'number': this.type = "number"; break;
       default: this.type = "text";
     }
-    // console.log(" attribute: " + typeof model['customer_name']);
+
+
+    // console.log(" attribute: " + typeof model['customer_name']);    
+    let modelRulesArray = model.rules();
+
+    modelRulesArray.forEach((subArray: any) => {
+
+
+      switch (subArray[subArray.length - 1]) {
+        case 'required': this.required = subArray[0].includes(attribute) ? '' : null; break;
+      }
+    });
   }
   // ngAfterViewInit(){
   //   console.log(this.modelAttribute.constructor.name);
   // }
 
 
+  onBlur(event: any) {
+    this.onTouched();
+  }
+
   updateValue(event: any) {
     this.value = event.target.value;
     // console.log(this.value);
+
     this.onChange(this.value);
     this.onTouched();
   }
 
-  
   writeValue(value: any): void {
     this.value = value;
-    
-    
-  //   console.log("value: ")
-  //   console.log(value);
   }
-  
   registerOnChange(onChange: any): void {
     this.onChange = onChange;
   }
 
-  
-  
   registerOnTouched(onTouched: any): void {
     this.onTouched = onTouched;
   }
 
-
-  setDisabledState(disabled: boolean){
+  setDisabledState(disabled: boolean) {
     this.disabled = disabled;
+  }
+
+  validate(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    console.log(value);
+
+    let errorsObj: any = {};
+    let modelRulesArray = this.model.rules();
+    // console.log(modelRulesArray);
+    modelRulesArray.forEach((subArray: any) => {
+      // console.log(subArray);
+
+      if (subArray[0].includes(this.attribute)) {
+        subArray.forEach((subArrayItem: any, index: number) => {
+          if (index == 0) return;
+
+          switch (subArrayItem) {
+            case 'string': if (typeof value != "string") {
+              errorsObj[this.attribute] = {
+                currentType: typeof value,
+                currentValue: value,
+                expectedType: 'string',
+                errMsg: 'String Only'
+              };
+            }
+              break;
+            case 'number': if (typeof value != "number") {
+              errorsObj[this.attribute] = {
+                currentType: typeof value,
+                currentValue: value,
+                expectedType: 'number',
+                errMsg: 'number'
+              };
+            }
+              break;
+            case 'required': if (value != null && value.length == 0) {
+              errorsObj[this.attribute] = {
+                currentType: typeof value,
+                currentValue: value,
+                required: true,
+                reqErrMsg: 'Field is marked as required'
+              };
+            }
+              break;
+          }
+        });
+
+      }
+    });
+    console.log(errorsObj);
+
+    return Object.keys(errorsObj).length > 0 ? errorsObj : null;
+    // return {'test': 'test'};
+    // return errorsObj;
   }
 }

@@ -1,6 +1,20 @@
 <div class="form-group" >
     <label for="{{ nameProp }}"> {{ label }}</label>
-    <input type="{{ type }}" name="{{nameProp}}" id="{{ id }}" class="form-control" value="{{ value }}" (keyup)="updateValue($event)" (change)="updateValue($event)" />
+    <input 
+        type="{{ type }}" 
+        name="{{nameProp}}" 
+        id="{{ id }}" 
+        class="form-control" 
+        
+        
+        
+        value="{{ value }}" 
+        (keyup)="updateValue($event)" 
+        (change)="updateValue($event)" 
+        
+        (blur) = "onBlur($event)"
+        [attr.required] = "required"
+    />
 </div>
 
 <!-- {{ modelAttribute[0] | json}} -->

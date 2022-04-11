@@ -3,7 +3,7 @@ import { ActiveRecord } from "../modals_core/ActiveRecord";
 export class CustomerDetails extends ActiveRecord {
     public customer_id?: number;
     public customer_uid?: number;
-    public customer_name!: string ;
+    public customer_name: string = '';
     public customer_contact: string = '';
 
 
@@ -48,6 +48,12 @@ export class CustomerDetails extends ActiveRecord {
 
 
 
+    rules(){
+        return [
+            [['customer_name', 'customer_contact', 'customer_company_name'], 'required'],
+            [['customer_name', 'customer_contact', 'customer_company_name', 'customer_code'], 'string']
+        ]
+    }
     attributeLabels() {
         return {
             'customer_id': 'Customer ID',
