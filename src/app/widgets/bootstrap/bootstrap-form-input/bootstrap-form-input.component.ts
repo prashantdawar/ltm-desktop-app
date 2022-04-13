@@ -97,17 +97,21 @@ export class BootstrapFormInputComponent implements OnInit, ControlValueAccessor
     console.log("blur");
     this.touched();
     this.updateValue(event);
+    this.onChange(event.target.value);
   }
 
   updateValue(event: any) {
     console.log("keyup");
     this.value = event.target.value;
     console.log(this.value);
-    this.onChange(this.value);
+    // this.onChange(this.value);
     // this.touched();
 
 
-    if (this.keyUpCount++) this.touched();
+    if (this.keyUpCount++) {
+      this.touched();
+      this.onChange(this.value);
+    }
   }
 
   writeValue(value: any): void {
