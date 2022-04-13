@@ -1,6 +1,29 @@
 <div class="form-group" >
     <label for="{{ nameProp }}"> {{ label }}</label>
-    <textarea name="{{nameProp}}" id="{{ id }}" class="form-control" value="{{ value }}" (keyup)="updateValue($event)" (change)="updateValue($event)" ></textarea>
+    <textarea
+        name="{{nameProp}}" 
+        id="{{ id }}" 
+        class="form-control" 
+        
+        
+        
+        [class.is-valid] = "valid && is_touched"
+        [class.is-invalid] = "!valid && is_touched"
+        value="{{ value }}"
+        
+        (keyup)="updateValue($event)" 
+        (change)="updateValue($event)" 
+        
+        
+        (blur) = "onBlur($event)"
+        [attr.required] = "required"
+    >
+    </textarea>
+
+    
+    <div class="invalid-feedback" >
+        {{ validationMessage }}
+    </div>
 </div>
 
 <!-- {{ modelAttribute[0] | json}} -->

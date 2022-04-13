@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
+import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
+import { CustomValidation } from 'src/app/modals_core/Customvalidation';
 
 @Component({
   selector: 'ngx-bootstrap-form-textarea',
@@ -14,72 +14,76 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
       multi: true,
       useExisting: BootstrapFormTextareaComponent
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: BootstrapFormTextareaComponent
     }
   ]
 })
 
-export class BootstrapFormTextareaComponent implements OnInit, ControlValueAccessor {
-
-
+export class BootstrapFormTextareaComponent extends CustomValidation implements OnInit, ControlValueAccessor, Validator {
   id: string = "id";
   nameProp: string = "nameProp";
-  labelFor: string = "nameProp";
-  disabled = false;
-  value: any = "test";
-  label: string = "label"; 
+  // labelFor: string = "nameProp";
+  type: string = "text";
+  label: string = "label";
+
+  // value: any = "test";
+  required: any = null;
 
 
 
-  @Input() model!: any;
-  @Input() attribute!: any; 
+
+  @Input() model: any;
+  @Input() attribute!: any;
   @Input() ngModel: any;
   @Output() ngModelChange = new EventEmitter();
-
-
-  constructor() { }
-    
-  onChange = (value: any) => { };
-  onTouched = () => {};
+ 
+  constructor() { super(); }
 
   ngOnInit(): void {
-    // let className = this.modelAttribute.constructor.name;
-    // console.log(this.model[this.attribute]);
     let model = this.model;
     let attribute = this.attribute;
-    // this.type = "text";
-
-    // let modelClassName = model.getClassName();
+    this.assignProp(this.model, this.attribute);
+    
+    //------------------------------------------//
+    //  Sets Attributes for Input Field 
+    //  ( label | name | id | type )
+    //--------------------------------------------
+    
     this.label = model.attributeLabels()[attribute];
     this.nameProp = this.attribute;
     this.id = model.getClassName().split(/(?=[A-Z])/).map((name: string) => name.toLowerCase()).join("-");
+    // switch (typeof model[attribute]) {
+    //   case 'string': this.type = "text"; break;
+    //   case 'number': this.type = "number"; break;
+    //   default: this.type = "text";
+    // }
+    let modelRulesArray = model.rules();
+    modelRulesArray.forEach((subArray: any) => {
+      if (subArray[0].includes(this.attribute)) {
+        subArray.forEach((subArrayItem: any, index: number) => {
+          if (index == 0) return;
+          
+                    
+          switch (subArrayItem) {          
+            case 'string': this.type = "text"; break;
+            
+            case 'integer': this.type = "number"; break;
+            
+            
+            case 'required': this.required = ''; break;            
+            default: this.type = "text";
+          }
+        })
+      }
+    });
+    //-------------------------------------------\\
+  }
+  // ngAfterViewInit(){
+  //   console.log(this.modelAttribute.constructor.name);
+  // }
 
-  }
-
-  updateValue(event: any) {
-    this.value = event.target.value;
-    // console.log(this.value);
-    this.onChange(this.value);
-    this.onTouched();
-  }
-  
-  writeValue(value: any): void {
-    this.value = value;
-  //   console.log("value: ")
-  //   console.log(value);
-  }
-  
-  registerOnChange(onChange: any): void {
-    this.onChange = onChange;
-  }
-
-  
-  
-  registerOnTouched(onTouched: any): void {
-    this.onTouched = onTouched;
-  }
-
-
-  setDisabledState(disabled: boolean){
-    this.disabled = disabled;
-  }
 }
