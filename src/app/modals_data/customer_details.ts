@@ -8,7 +8,6 @@ export class CustomerDetails extends ActiveRecord implements ModelDataFormat {
     public customer_contact!: string ;
 
 
-
     public customer_company_name!: string ;
     public customer_code!: string ;
     public customer_phone_number!: string ;
@@ -38,30 +37,27 @@ export class CustomerDetails extends ActiveRecord implements ModelDataFormat {
     // public created_at: string= '';
 
     // public updated_at: string= '';
-
     // public update_log: string= '';
 
-
+    public STATUS_ENABLE_OBJ = [['1','Active'],['0', 'Disabled']];
+    
     constructor() {
         super();
     }
-
-
-
-
+    
     rules(){
         return [
+    
             [['customer_name', 'customer_contact', 'customer_company_name', 'customer_address_pincode', 'customer_status_enable', 'customer_notes'], 'required'],
             [['customer_name', 'customer_contact', 'customer_company_name', 'customer_code','customer_phone_number', 'customer_whatsapp_number', 'customer_email', 'customer_gst_number', 'customer_address_street', 'customer_address_tehsil', 'customer_address_district', 'customer_address_state', 'customer_notes', 'customer_notes_internal'], 'string'],
-
             [['customer_due', 'customer_status_enable', 'customer_address_pincode'], 'integer']
         ]
     }
+
     attributeLabels() {
         return {
             'customer_id': 'Customer ID',
             'customer_uid': 'Customer UID',
-
             'customer_name': 'Customer Name',
             'customer_contact': 'Customer Contact',
             'customer_company_name': 'Company Name',
@@ -70,27 +66,26 @@ export class CustomerDetails extends ActiveRecord implements ModelDataFormat {
             'customer_whatsapp_number': 'WhatsApp Number',
             'customer_email': 'Email',
             'customer_gst_number': 'GST Number',
+
+
             'customer_due': 'Customer Due',
             'customer_status_enable': 'Customer Status',
+            
             'customer_category': 'Category',
+            
+            
             'customer_address_street': 'Address Street',
             'customer_address_tehsil': 'Tehsil',
-            
-            
             'customer_address_district': 'District',
-            'customer_address_state': 'State',
 
+            'customer_address_state': 'State',
             'customer_address_pincode': 'Pincode',
-            
-            
             'customer_notes': 'Notes',
             'customer_notes_internal': 'Internal Notes',
         }
     }
 
     getClassName() { return 'CustomerDetails' };
-    
-    
     
     
     getClassLabel() {

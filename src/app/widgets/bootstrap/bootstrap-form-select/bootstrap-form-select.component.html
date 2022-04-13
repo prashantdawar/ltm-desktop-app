@@ -1,0 +1,47 @@
+<div class="form-group" >
+    <label for="{{ nameProp }}"> {{ label }}</label>
+    <select 
+        name="{{nameProp}}" 
+        id="{{ id }}" 
+        class="form-control" 
+        
+        
+        
+        [class.is-valid] = "valid && is_touched"
+        [class.is-invalid] = "!valid && is_touched"
+        value="{{ value }}"
+        
+        (keyup)="updateValue($event)" 
+        (change)="updateValue($event)" 
+        
+        
+        (blur) = "onBlur($event)"
+        [attr.required] = "required"
+    >
+    
+    
+    
+    <!-- {{ model | json }} -->
+    <option *ngFor="let item of model.STATUS_ENABLE_OBJ" value="{{item[0]}}">
+        {{item[1]}}
+    
+    
+    </option>
+    
+
+    </select>
+
+    
+    <div class="invalid-feedback" >
+        {{ validationMessage }}
+    </div>
+</div>
+
+<!-- {{ modelAttribute[0] | json}} -->
+
+
+
+
+<!-- <div *ngFor="let model of modelAttribute">
+    {{ model | json }}
+</div> -->

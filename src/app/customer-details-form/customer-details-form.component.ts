@@ -44,7 +44,7 @@ export class CustomerDetailsFormComponent implements OnInit {
     console.log(form);
     const data = form.value;
     this.model.beforeSave();
-    if (this.model.customer_name) {
+    if (form.status == "VALID") {
       this.dbService
         .add('customer_details', this.model)
         .subscribe((key) => {
@@ -55,7 +55,6 @@ export class CustomerDetailsFormComponent implements OnInit {
           // this.model = new CustomerDetails();
         });
     } else {
-
       console.log("Fill Fields");
     }
   }
