@@ -24,7 +24,7 @@
         <tbody>
             <tr *ngFor="let model of models; let i = index">
                 <th scope="row">{{ i+1 }}</th>
-                <td>{{ model.customer_name }}</td>
+                <td><a [routerLink]="['/customer-details/view', model.customer_id]">{{ model.customer_name }}</a></td>
                 <td>{{ model.customer_id }}</td>
                 <td>{{ model.customer_phone_number }}</td>
             </tr>

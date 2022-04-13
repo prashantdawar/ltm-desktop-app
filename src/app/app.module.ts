@@ -23,6 +23,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { BootstrapBreadcrumbComponent } from './widgets/bootstrap/bootstrap-breadcrumb/bootstrap-breadcrumb.component';
 import { BootstrapFormTextareaComponent } from './widgets/bootstrap/bootstrap-form-textarea/bootstrap-form-textarea.component';
 import { BootstrapFormSelectComponent } from './widgets/bootstrap/bootstrap-form-select/bootstrap-form-select.component';
+import { CustomerDetailsViewComponent } from './customer-details-view/customer-details-view.component';
 
 const dbConfig: DBConfig = {
   name: 'web-db',
@@ -79,7 +80,8 @@ const dbConfig: DBConfig = {
     BootstrapFormInputComponent,
     BootstrapBreadcrumbComponent,
     BootstrapFormTextareaComponent,
-    BootstrapFormSelectComponent
+    BootstrapFormSelectComponent,
+    CustomerDetailsViewComponent
   ],
 
 
