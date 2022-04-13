@@ -1,0 +1,12 @@
+<table class="table table-striped table-bordered">
+    <tbody *ngIf="model != undefined">
+        <tr *ngFor="let column of columns">
+            <th>{{ model.attributeLabels()[column] }}</th>
+            <td>{{ model[column] }}</td>
+        </tr>
+    </tbody>
+
+
+
+    <!-- {{ model | json}} -->
+</table>

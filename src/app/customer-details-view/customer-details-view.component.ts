@@ -5,16 +5,20 @@ import { CustomerDetails } from '../modals_data/customer_details';
 
 @Component({
   selector: 'app-customer-details-view',
+  
+  
+  
   templateUrl: './customer-details-view.component.html',
   styleUrls: ['./customer-details-view.component.css']
 })
 
-
 export class CustomerDetailsViewComponent implements OnInit {
   breadcrumbItems: any[] = [];
-  customer!: CustomerDetails;
-  
+
+
+  customer!: CustomerDetails;  
   constructor(private route: ActivatedRoute, private dbService: NgxIndexedDBService) { }
+
 
 
   ngOnInit(): void {
@@ -25,6 +29,7 @@ export class CustomerDetailsViewComponent implements OnInit {
     {
       'label': (new CustomerDetails()).getClassLabel(),
       'urlTo': '/customer-details',
+     
       'active': true
     },
     {
@@ -40,15 +45,17 @@ export class CustomerDetailsViewComponent implements OnInit {
     this.getFromIndexDB(customerId);
   }
 
-
+  
+  
+  
   getFromIndexDB(customerId: number){
     this.dbService
     .getByKey('customer_details', customerId)
     .subscribe((customer) => {
+  
       console.log(customer);
-
-
       this.customer = Object.assign(new CustomerDetails(), customer);
+      // console.log(this.customer.attributeLabels());
     })
   }
 }

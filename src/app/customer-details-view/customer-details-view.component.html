@@ -2,5 +2,6 @@
     <br>
     <ngx-bootstrap-breadcrumb [breadcrumbItems]="breadcrumbItems"></ngx-bootstrap-breadcrumb>
     <br>
-    {{ customer | json}}
+    <!-- {{ customer | json}} -->
+    <ngx-bootstrap-detailview [columns]="['customer_name', 'customer_company_name', 'customer_contact', 'customer_contact', 'customer_phone_number', 'customer_whatsapp_number', 'customer_email', 'customer_gst_number', 'customer_status_enable', 'customer_code', 'customer_notes', 'customer_notes_internal']" [model]="customer"></ngx-bootstrap-detailview>
 </div>

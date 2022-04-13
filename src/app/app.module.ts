@@ -24,6 +24,7 @@ import { BootstrapBreadcrumbComponent } from './widgets/bootstrap/bootstrap-brea
 import { BootstrapFormTextareaComponent } from './widgets/bootstrap/bootstrap-form-textarea/bootstrap-form-textarea.component';
 import { BootstrapFormSelectComponent } from './widgets/bootstrap/bootstrap-form-select/bootstrap-form-select.component';
 import { CustomerDetailsViewComponent } from './customer-details-view/customer-details-view.component';
+import { BootstrapDetailviewComponent } from './widgets/bootstrap/bootstrap-detailview/bootstrap-detailview.component';
 
 const dbConfig: DBConfig = {
   name: 'web-db',
@@ -81,7 +82,8 @@ const dbConfig: DBConfig = {
     BootstrapBreadcrumbComponent,
     BootstrapFormTextareaComponent,
     BootstrapFormSelectComponent,
-    CustomerDetailsViewComponent
+    CustomerDetailsViewComponent,
+    BootstrapDetailviewComponent
   ],
 
 
