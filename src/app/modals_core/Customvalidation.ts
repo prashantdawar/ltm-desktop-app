@@ -57,7 +57,7 @@ export class CustomValidation extends CommonControlValueAccessor {
                             };
                         }
                             break;
-                        case 'required': if (value != null && value.length == 0) {
+                        case 'required': if (value != null && value.length == 0 || value == undefined) {
                             errorsObj[this.attributeProp] = {
                                 currentType: typeof value,
                                 currentValue: value,
@@ -68,15 +68,15 @@ export class CustomValidation extends CommonControlValueAccessor {
                             skipSubArrayForEach = true;
                             break;
                     }
-                    console.log(errorsObj);
+                    // console.log(errorsObj);
                 });
 
             }
         });
 
         console.log(errorsObj);
-        
-        
+        // console.log(this.is_touched);
+        if(value == undefined) this.is_touched = false;
         
         if (Object.keys(errorsObj).length == 0) {
             this.valid = true;
