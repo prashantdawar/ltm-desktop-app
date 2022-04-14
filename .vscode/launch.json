@@ -8,7 +8,8 @@
       "request": "launch",
       "preLaunchTask": "npm: start",
       "url": "http://localhost:4200/",
-      // https://stackoverflow.com/questions/60255906/how-to-close-the-task-terminal-automatically-after-vscode-debugging      
+      // https://stackoverflow.com/questions/60255906/how-to-close-the-task-terminal-automatically-after-vscode-debugging
+      "postDebugTask": "postDebugTask"
     },
     {
       "name": "ng test",
