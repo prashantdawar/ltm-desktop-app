@@ -1,7 +1,4 @@
-<div class="container">
-    <br>
-    <ngx-bootstrap-breadcrumb [breadcrumbItems]="breadcrumbItems"></ngx-bootstrap-breadcrumb>
-    <br>
+<div class="container">    
     {{ model | json}} <h1>Create Customer Details</h1>
     <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
         <ngx-bootstrap-form-input  name="customer_name" [model] = "model" [attribute] = "'customer_name'" [(ngModel)]="model.customer_name"></ngx-bootstrap-form-input>

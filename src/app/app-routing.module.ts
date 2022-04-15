@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'customer-details/create', component: CustomerDetailsCreateComponent },
   { path: 'customer-details/view/:customerId', component: CustomerDetailsViewComponent },
 
-  
+
   { path: 'product-details', component: ProductDetailsIndexComponent },
   { path: 'product-details/create', component: ProductDetailsFormComponent },
 
@@ -28,9 +28,12 @@ const routes: Routes = [
   { path: 'coupon-details/create', component: CouponDetailsFormComponent }
 ];
 
+
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 
 export class AppRoutingModule { }
