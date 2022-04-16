@@ -2,7 +2,8 @@
     <br>
     <ngx-bootstrap-breadcrumb [breadcrumbItems]="breadcrumbItems"></ngx-bootstrap-breadcrumb>
     <br>
-    <!-- {{ customer | json}} -->
+    <a class="btn btn-success" [routerLink]="['/customer-details/update', customer.customer_id]">Update</a>
+    <br><br>
     <ngx-bootstrap-detailview [columns]="columns" [model]="customer">
 
     </ngx-bootstrap-detailview>

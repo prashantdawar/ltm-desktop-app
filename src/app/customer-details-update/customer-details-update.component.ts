@@ -4,14 +4,14 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { CustomerDetails } from '../modals_data/customer_details';
 
 @Component({
-  selector: 'app-customer-details-create',
-  templateUrl: './customer-details-create.component.html',
-  styleUrls: ['./customer-details-create.component.css']
+  selector: 'app-customer-details-update',
+  templateUrl: './customer-details-update.component.html',
+  styleUrls: ['./customer-details-update.component.css']
 })
 
 
 
-export class CustomerDetailsCreateComponent implements OnInit {
+export class CustomerDetailsUpdateComponent implements OnInit {
   model: any = new CustomerDetails();
 
   breadcrumbItems: any[] = [];
@@ -32,23 +32,35 @@ export class CustomerDetailsCreateComponent implements OnInit {
       'active': true
     }
     ];
-    // const routeParams = this.route.snapshot.paramMap;
-    // const customerId = Number(routeParams.get('customerId'));
+    const routeParams = this.route.snapshot.paramMap;
+    const customerId = Number(routeParams.get('customerId'));
 
 
-    // this.getFromIndexDB(customerId);
+    this.getFromIndexDB(customerId);
   }
 
   onChange(changes: any){
     console.log(changes);
 
     this.model = changes;
-    this.saveModel();
+    this.updateModel();
   }
 
-  saveModel(){
+  getFromIndexDB(customerId: number) {
     this.dbService
-    .add('customer_details', this.model)   
+      .getByKey('customer_details', customerId)
+      .subscribe((customer) => {
+        
+        console.log(customer);
+        this.model = Object.assign(new CustomerDetails(), customer);
+        // this.updateColumns();
+        // console.log(this.customer.attributeLabels());
+      })
+  }
+
+  updateModel(){
+    this.dbService
+    .update('customer_details', this.model)   
     .subscribe((key) => {
       console.log('key: ', key);
       // form.reset(); // only working in template-driven form for fixed template.
