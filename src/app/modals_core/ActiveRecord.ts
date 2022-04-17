@@ -27,8 +27,8 @@ export class ActiveRecord{
         this.updated_at = 0;
     }
 
-    save(dbService:NgxIndexedDBService, model: any = this){
-
+    save(dbService:NgxIndexedDBService){
+        let model: any = this;
 
         if(model.getIndexKey() != undefined){
             return dbService.update(model.getStoreName(), model);
