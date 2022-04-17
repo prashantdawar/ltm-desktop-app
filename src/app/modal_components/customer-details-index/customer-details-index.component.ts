@@ -11,46 +11,56 @@ export class CustomerDetailsIndexComponent implements OnInit {
 
   constructor(private dbService: NgxIndexedDBService) { }
 
-  
+
   models: CustomerDetails[] = [];
   breadcrumbItems: any[] = [];
-  
-  
+
+
   ngOnInit(): void {
     this.breadcrumbItems = [{
       'label': 'Home',
-      'urlTo'  : '',
+      'urlTo': '',
     },
     {
       'label': (new CustomerDetails()).getClassLabel(),
       'active': true
     }
-  ];
-    
+    ];
+
     this.getFromIndexDB();
   }
 
 
-  getFromIndexDB(){
+  getFromIndexDB() {
     // let index_detail:IndexDetails = {
     //   indexName: 'customer_name',
     //   order: 'asc'
     // }
-    this.dbService.getAll(
-      'customer_details', 
-      // 'customer_name',
-      
-      // IDBKeyRange.only('customer_id')
-      )
+    // this.dbService.getAll(
+    //   'customer_details', 
+    //   // 'customer_name',
+
+    //   // IDBKeyRange.only('customer_id')
+    //   )
+    //   .subscribe((kpis) => {
+    //     console.log(kpis);
+
+
+    //     kpis.forEach((kp) => {
+    //       this.models.push(Object.assign(new CustomerDetails(), kp));
+    //     });
+
+    //     console.log(this.models);
+    //   });
+
+    (new CustomerDetails())
+      .find(this.dbService)
       .subscribe((kpis) => {
         console.log(kpis);
-
-
         kpis.forEach((kp) => {
           this.models.push(Object.assign(new CustomerDetails(), kp));
         });
-
         console.log(this.models);
-      });      
+      });
   }
 }
