@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { ProductDetails } from '../modals_data/product_details';
+import { ProductDetails } from '../../modals_data/product_details';
 
 @Component({
   selector: 'app-product-details-form',

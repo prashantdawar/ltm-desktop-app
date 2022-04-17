@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { DetailView } from '../modals_core/DetailView';
-import { CustomerDetails } from '../modals_data/customer_details';
+import { DetailView } from '../../modals_core/DetailView';
+import { CustomerDetails } from '../../modals_data/customer_details';
 
 @Component({
   selector: 'app-customer-details-view',

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { CustomerDetails } from '../modals_data/customer_details';
+import { CustomerDetails } from '../../modals_data/customer_details';
 
 
 

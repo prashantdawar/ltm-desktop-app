@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { CustomerDetails } from '../modals_data/customer_details';
+import { CustomerDetails } from '../../modals_data/customer_details';
 
 @Component({
-  selector: 'app-customer-details-update',
-  templateUrl: './customer-details-update.component.html',
-  styleUrls: ['./customer-details-update.component.css']
+  selector: 'app-customer-details-create',
+  templateUrl: './customer-details-create.component.html',
+  styleUrls: ['./customer-details-create.component.css']
 })
 
 
 
-export class CustomerDetailsUpdateComponent implements OnInit {
+export class CustomerDetailsCreateComponent implements OnInit {
   model: any = new CustomerDetails();
 
   breadcrumbItems: any[] = [];
@@ -32,44 +32,29 @@ export class CustomerDetailsUpdateComponent implements OnInit {
       'active': true
     }
     ];
-    const routeParams = this.route.snapshot.paramMap;
-    const customerId = Number(routeParams.get('customerId'));
+    // const routeParams = this.route.snapshot.paramMap;
+    // const customerId = Number(routeParams.get('customerId'));
 
 
-    this.getFromIndexDB(customerId);
+    // this.getFromIndexDB(customerId);
   }
 
   onChange(changes: any){
     console.log(changes);
 
     this.model = changes;
-    this.updateModel();
+    this.saveModel();
   }
 
-  getFromIndexDB(customerId: number) {
-    this.dbService
-      .getByKey('customer_details', customerId)
-      .subscribe((customer) => {
-        
-        console.log(customer);
-        this.model = Object.assign(new CustomerDetails(), customer);
-        // this.updateColumns();
-        // console.log(this.customer.attributeLabels());
-      })
-  }
-
-  updateModel(){
+  saveModel(){
     // this.dbService
-    // .update('customer_details', this.model)   
+    // .add('customer_details', this.model)   
     // .subscribe((key) => {
     //   console.log('key: ', key);
     //   // form.reset(); // only working in template-driven form for fixed template.
     //   this.model = null;
     //   this.model = new CustomerDetails();
     // });
-
-
-
 
     this.model.save(this.dbService)
     .subscribe((key: any) => {

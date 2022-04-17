@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { CouponDetails } from '../modals_data/coupon_details';
+import { CouponDetails } from '../../modals_data/coupon_details';
 
 @Component({
   selector: 'app-coupon-details-form',
