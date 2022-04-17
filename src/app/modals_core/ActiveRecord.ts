@@ -39,4 +39,8 @@ export class ActiveRecord{
     find(dbService:NgxIndexedDBService, model: any = this){
         return dbService.getAll(model.getStoreName());
     }
+
+    findOne(dbService:NgxIndexedDBService, indexKey: number, model: any = this){
+        return dbService.getByKey(model.getStoreName(), indexKey);
+    }
 }
