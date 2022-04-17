@@ -85,8 +85,12 @@ export class CustomerDetails extends ActiveRecord implements ModelDataFormat {
         }
     }
 
+
+
+
+    getStoreName() { return 'customer_details'};
     getClassName() { return 'CustomerDetails' };
-    
+    getIndexKey() { return this.customer_id };
     
     getClassLabel() {
         let className = this.getClassName();

@@ -59,13 +59,24 @@ export class CustomerDetailsUpdateComponent implements OnInit {
   }
 
   updateModel(){
-    this.dbService
-    .update('customer_details', this.model)   
-    .subscribe((key) => {
-      console.log('key: ', key);
-      // form.reset(); // only working in template-driven form for fixed template.
+    // this.dbService
+    // .update('customer_details', this.model)   
+    // .subscribe((key) => {
+    //   console.log('key: ', key);
+    //   // form.reset(); // only working in template-driven form for fixed template.
+    //   this.model = null;
+    //   this.model = new CustomerDetails();
+    // });
+
+
+
+
+    this.model.save(this.dbService)
+    .subscribe((key: any) => {
       this.model = null;
       this.model = new CustomerDetails();
-    });
+      console.log('key:');
+      console.log(key);
+    })
   }
 }

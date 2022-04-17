@@ -1,3 +1,5 @@
+import { NgxIndexedDBService } from "ngx-indexed-db";
+
 export class ActiveRecord{
     public created_on!: string;    
     public updated_on!: string;
@@ -23,5 +25,14 @@ export class ActiveRecord{
 
         this.created_at = 0;
         this.updated_at = 0;
+    }
+
+    save(dbService:NgxIndexedDBService, model: any = this){
+
+
+        if(model.getIndexKey() != undefined){
+            return dbService.update(model.getStoreName(), model);
+        }
+        return dbService.add(model.getStoreName(), model);
     }
 }
