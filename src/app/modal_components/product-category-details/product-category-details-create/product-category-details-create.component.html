@@ -1,1 +1,6 @@
-<p>product-category-details-create works!</p>
+<div class="container">
+    <br>
+    <ngx-bootstrap-breadcrumb [breadcrumbItems]="breadcrumbItems"></ngx-bootstrap-breadcrumb>
+    <br>
+    <app-product-category-details-form [model]="model" (modelChange)="onChange($event)"></app-product-category-details-form>
+</div>

@@ -25,7 +25,7 @@ export class ProductCategoryDetails extends ActiveRecord implements ModelDataFor
     rules() {
         return [
             [['product_category_name'], 'required'],
-            [['product_cateogry_id', 'product_category_uid', 'product_category_status_enable'], 'integer'],
+            // [['product_cateogry_id', 'product_category_uid', 'product_category_status_enable'], 'integer'],
             [['product_category_name', 'product_cateogry_description', 'product_category_notes', 'product_category_notes_internal', 'product_category_code'], 'string']
         ];
     }
@@ -46,13 +46,16 @@ export class ProductCategoryDetails extends ActiveRecord implements ModelDataFor
     }
 
     getStoreName(): string {
-        return 'product_categor_details';
+        return 'product_category_details';
     }
 
     getClassName(): string {
         return 'ProductCategoryDetails';
     }
 
+    getIndexKey(): number {
+        return this.product_category_id;
+    }
 
     getClassLabel(): string {
         let className = this.getClassName();
