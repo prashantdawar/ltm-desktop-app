@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IndexDetails, NgxIndexedDBService } from 'ngx-indexed-db';
-import { CustomerDetails } from '../../modals_data/customer_details';
+import { CustomerDetails } from '../../../modals_data/customer_details';
 
 @Component({
   selector: 'app-customer-details-index',
