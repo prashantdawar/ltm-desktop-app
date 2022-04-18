@@ -1,1 +1,33 @@
-<p>product-category-details-index works!</p>
+<div class="container">
+    <br>
+    <ngx-bootstrap-breadcrumb [breadcrumbItems]="breadcrumbItems"></ngx-bootstrap-breadcrumb>
+    <br>
+    <a routerLink="/product-category-details/create" class="btn btn-success">Create Product Category Details</a>
+    <br><br>
+    
+    
+    
+    
+    <table class="table table-striped" *ngIf="models.length > 0">
+        <thead>
+            <tr>
+
+                <th scope="col">#</th>
+                <th scope="col">{{ model.attributeLabels()['product_category_name'] }}</th>
+                
+                
+                <th scope="col">{{ model.attributeLabels().product_category_id }}</th>
+                <th scope="col">{{ model.attributeLabels().product_category_code }}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let model of models; let i = index">
+                <th scope="row">{{ i+1 }}</th>
+                <td><a [routerLink]="['/product-category-details/view', model.product_category_id]">{{ model.product_category_name }}</a></td>
+                <td>{{ model.product_category_id }}</td>
+                <td>{{ model.product_category_code }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

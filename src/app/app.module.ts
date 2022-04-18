@@ -33,9 +33,12 @@ import { ProductCategoryDetailsUpdateComponent } from './modal_components/produc
 import { ProductCategoryDetailsIndexComponent } from './modal_components/product-category-details/product-category-details-index/product-category-details-index.component';
 import { ProductCategoryDetailsViewComponent } from './modal_components/product-category-details/product-category-details-view/product-category-details-view.component';
 
+
+
+
 const dbConfig: DBConfig = {
   name: 'web-db',
-  version: 2,
+  version: 3,
   objectStoresMeta: [{
     store: 'customer_details',
     storeConfig: { keyPath: 'customer_id', autoIncrement: true },
@@ -48,8 +51,6 @@ const dbConfig: DBConfig = {
     ]
   },
   {
-
-
     store: 'product_details',
     storeConfig: { keyPath: 'product_id', autoIncrement: true },
     storeSchema: [{
@@ -59,12 +60,24 @@ const dbConfig: DBConfig = {
     }]
   },
   {
-
+    store: 'product_category_details',
+    storeConfig: { keyPath: 'product_category_id', autoIncrement: true },
+    storeSchema: [{
+      name: 'product_category_name',
+      keypath: 'product_category_name',
+      options: { unique: true }
+    }]
+  },
+  {  
     store: 'coupon_details',
+    
     storeConfig: { keyPath: 'coupon_details_id', autoIncrement: true },
+    
+    
     storeSchema: [{
       name: 'coupon_details_name',
       keypath: 'coupon_details_name',
+    
       options: { unique: true }
     }]
   }
@@ -74,17 +87,13 @@ const dbConfig: DBConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    
     CustomerDetailsFormComponent,
     CustomerDetailsIndexComponent,
     ProductDetailsFormComponent,
-
-
     ProductDetailsIndexComponent,
     CouponDetailsFormComponent,
-
     CouponDetailsIndexComponent,
-
-
     BootstrapFormInputComponent,
     BootstrapBreadcrumbComponent,
     BootstrapFormTextareaComponent,
@@ -96,21 +105,22 @@ const dbConfig: DBConfig = {
     ProductCategoryDetailsFormComponent,
     ProductCategoryDetailsCreateComponent,
     ProductCategoryDetailsUpdateComponent,
+    
+    
     ProductCategoryDetailsIndexComponent,
     ProductCategoryDetailsViewComponent
   ],
-
 
   imports: [
     BrowserModule,
     AppRoutingModule,
     // CommonModule,
 
-
     FormsModule,
     LoadingBarRouterModule,
     NgxIndexedDBModule.forRoot(dbConfig)
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
