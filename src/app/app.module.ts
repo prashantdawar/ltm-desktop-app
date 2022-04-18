@@ -27,6 +27,11 @@ import { CustomerDetailsViewComponent } from './modal_components/customer-detail
 import { BootstrapDetailviewComponent } from './widgets/bootstrap/bootstrap-detailview/bootstrap-detailview.component';
 import { CustomerDetailsCreateComponent } from './modal_components/customer-details/customer-details-create/customer-details-create.component';
 import { CustomerDetailsUpdateComponent } from './modal_components/customer-details/customer-details-update/customer-details-update.component';
+import { ProductCategoryDetailsFormComponent } from './modal_components/product-category-details/product-category-details-form/product-category-details-form.component';
+import { ProductCategoryDetailsCreateComponent } from './modal_components/product-category-details/product-category-details-create/product-category-details-create.component';
+import { ProductCategoryDetailsUpdateComponent } from './modal_components/product-category-details/product-category-details-update/product-category-details-update.component';
+import { ProductCategoryDetailsIndexComponent } from './modal_components/product-category-details/product-category-details-index/product-category-details-index.component';
+import { ProductCategoryDetailsViewComponent } from './modal_components/product-category-details/product-category-details-view/product-category-details-view.component';
 
 const dbConfig: DBConfig = {
   name: 'web-db',
@@ -87,7 +92,12 @@ const dbConfig: DBConfig = {
     CustomerDetailsViewComponent,
     BootstrapDetailviewComponent,
     CustomerDetailsCreateComponent,
-    CustomerDetailsUpdateComponent
+    CustomerDetailsUpdateComponent,
+    ProductCategoryDetailsFormComponent,
+    ProductCategoryDetailsCreateComponent,
+    ProductCategoryDetailsUpdateComponent,
+    ProductCategoryDetailsIndexComponent,
+    ProductCategoryDetailsViewComponent
   ],
 
 
