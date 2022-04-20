@@ -45,7 +45,7 @@ export class ProductCategoryDetailsViewComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const productCategoryId = Number(routeParams.get('productCategoryId'));
 
-
+    console.log(productCategoryId);
     this.getFromIndexDB(productCategoryId);
   }
 

@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'product-category-details', component: ProductCategoryDetailsIndexComponent },
   { path: 'product-category-details/create', component: ProductCategoryDetailsCreateComponent },
   { path: 'product-category-details/update/:productCategoryId', component: ProductCategoryDetailsUpdateComponent },
-  { path: 'product-category-details/view/:produdtCategoryId', component: ProductCategoryDetailsViewComponent },
+  { path: 'product-category-details/view/:productCategoryId', component: ProductCategoryDetailsViewComponent },
   
   { path: 'coupon-details', component: CouponDetailsIndexComponent },
   { path: 'coupon-details/create', component: CouponDetailsFormComponent }
