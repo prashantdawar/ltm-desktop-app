@@ -1,1 +1,8 @@
-<p>order-details-form works!</p>
+<div class="container">    
+    {{ model | json}} <h1>Create Customer Details</h1>
+    <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
+        <ngx-bootstrap-form-input  name="order_customer_uid" [model] = "model" [attribute] = "'order_customer_id'" [(ngModel)]="model.order_customer_id"></ngx-bootstrap-form-input>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    
+</div>
