@@ -32,6 +32,11 @@ import { ProductCategoryDetailsCreateComponent } from './modal_components/produc
 import { ProductCategoryDetailsUpdateComponent } from './modal_components/product-category-details/product-category-details-update/product-category-details-update.component';
 import { ProductCategoryDetailsIndexComponent } from './modal_components/product-category-details/product-category-details-index/product-category-details-index.component';
 import { ProductCategoryDetailsViewComponent } from './modal_components/product-category-details/product-category-details-view/product-category-details-view.component';
+import { OrderDetailsFormComponent } from './modal_components/order-details/order-details-form/order-details-form.component';
+import { OrderDetailsCreateComponent } from './modal_components/order-details/order-details-create/order-details-create.component';
+import { OrderDetailsUpdateComponent } from './modal_components/order-details/order-details-update/order-details-update.component';
+import { OrderDetailsViewComponent } from './modal_components/order-details/order-details-view/order-details-view.component';
+import { OrderDetailsIndexComponent } from './modal_components/order-details/order-details-index/order-details-index.component';
 
 
 
@@ -108,7 +113,12 @@ const dbConfig: DBConfig = {
     
     
     ProductCategoryDetailsIndexComponent,
-    ProductCategoryDetailsViewComponent
+    ProductCategoryDetailsViewComponent,
+    OrderDetailsFormComponent,
+    OrderDetailsCreateComponent,
+    OrderDetailsUpdateComponent,
+    OrderDetailsViewComponent,
+    OrderDetailsIndexComponent
   ],
 
   imports: [
