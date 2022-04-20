@@ -1,1 +1,6 @@
-<p>order-details-create works!</p>
+<div class="container">
+    <br>
+    <ngx-bootstrap-breadcrumb [breadcrumbItems]="breadcrumbItems"></ngx-bootstrap-breadcrumb>
+    <br>
+    <app-order-details-form [model]="model" (modelChange)="onChange($event)"></app-order-details-form>
+</div>
