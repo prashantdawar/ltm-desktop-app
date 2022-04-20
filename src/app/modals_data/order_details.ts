@@ -39,4 +39,13 @@ export class OrderDetails {
     public update_log!: string;
     public order_email_log!: string;
     
+
+    getStoreName() { return 'order_details'};
+    getClassName() { return 'OrderDetails' };
+    getIndexKey() { return this.order_id };
+    
+    getClassLabel() {
+        let className = this.getClassName();
+        return className.split(/(?=[A-Z])/).join(" ");
+    }
 }

@@ -8,19 +8,19 @@ import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
 
 
 
-// import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CustomerDetailsIndexComponent } from './modal_components/customer-details/customer-details-index/customer-details-index.component';
-
 import { ProductDetailsFormComponent } from './modal_components/product-details/product-details-form/product-details-form.component';
+
 import { ProductDetailsIndexComponent } from './modal_components/product-details/product-details-index/product-details-index.component';
-
-
 import { CouponDetailsFormComponent } from './modal_components/coupon-details/coupon-details-form/coupon-details-form.component';
+
+
 import { CouponDetailsIndexComponent } from './modal_components/coupon-details/coupon-details-index/coupon-details-index.component';
 import { BootstrapFormInputComponent } from './widgets/bootstrap/bootstrap-form-input/bootstrap-form-input.component';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { BootstrapBreadcrumbComponent } from './widgets/bootstrap/bootstrap-breadcrumb/bootstrap-breadcrumb.component';
+
 import { BootstrapFormTextareaComponent } from './widgets/bootstrap/bootstrap-form-textarea/bootstrap-form-textarea.component';
 import { BootstrapFormSelectComponent } from './widgets/bootstrap/bootstrap-form-select/bootstrap-form-select.component';
 import { CustomerDetailsViewComponent } from './modal_components/customer-details/customer-details-view/customer-details-view.component';
@@ -29,17 +29,16 @@ import { CustomerDetailsCreateComponent } from './modal_components/customer-deta
 import { CustomerDetailsUpdateComponent } from './modal_components/customer-details/customer-details-update/customer-details-update.component';
 import { ProductCategoryDetailsFormComponent } from './modal_components/product-category-details/product-category-details-form/product-category-details-form.component';
 import { ProductCategoryDetailsCreateComponent } from './modal_components/product-category-details/product-category-details-create/product-category-details-create.component';
+
 import { ProductCategoryDetailsUpdateComponent } from './modal_components/product-category-details/product-category-details-update/product-category-details-update.component';
 import { ProductCategoryDetailsIndexComponent } from './modal_components/product-category-details/product-category-details-index/product-category-details-index.component';
 import { ProductCategoryDetailsViewComponent } from './modal_components/product-category-details/product-category-details-view/product-category-details-view.component';
 import { OrderDetailsFormComponent } from './modal_components/order-details/order-details-form/order-details-form.component';
 import { OrderDetailsCreateComponent } from './modal_components/order-details/order-details-create/order-details-create.component';
+
 import { OrderDetailsUpdateComponent } from './modal_components/order-details/order-details-update/order-details-update.component';
 import { OrderDetailsViewComponent } from './modal_components/order-details/order-details-view/order-details-view.component';
 import { OrderDetailsIndexComponent } from './modal_components/order-details/order-details-index/order-details-index.component';
-
-
-
 
 const dbConfig: DBConfig = {
   name: 'web-db',
@@ -67,8 +66,11 @@ const dbConfig: DBConfig = {
   {
     store: 'product_category_details',
     storeConfig: { keyPath: 'product_category_id', autoIncrement: true },
+
+
     storeSchema: [{
       name: 'product_category_name',
+
       keypath: 'product_category_name',
       options: { unique: true }
     }]
@@ -77,15 +79,25 @@ const dbConfig: DBConfig = {
     store: 'coupon_details',
     
     storeConfig: { keyPath: 'coupon_details_id', autoIncrement: true },
-    
-    
     storeSchema: [{
       name: 'coupon_details_name',
       keypath: 'coupon_details_name',
     
+
       options: { unique: true }
     }]
-  }
+  },
+  {
+    store: 'order_details',
+    storeConfig: { keyPath: 'order_id', autoIncrement: true },
+    storeSchema: [
+      {
+        name: 'customer_name',
+        keypath: 'customer_name',
+        options: { unique: false }
+      }
+    ]
+  },
   ]
 };
 
@@ -93,6 +105,8 @@ const dbConfig: DBConfig = {
   declarations: [
     AppComponent,
     
+   
+   
     CustomerDetailsFormComponent,
     CustomerDetailsIndexComponent,
     ProductDetailsFormComponent,
@@ -100,20 +114,22 @@ const dbConfig: DBConfig = {
     CouponDetailsFormComponent,
     CouponDetailsIndexComponent,
     BootstrapFormInputComponent,
+   
+   
     BootstrapBreadcrumbComponent,
     BootstrapFormTextareaComponent,
     BootstrapFormSelectComponent,
     CustomerDetailsViewComponent,
+   
     BootstrapDetailviewComponent,
     CustomerDetailsCreateComponent,
     CustomerDetailsUpdateComponent,
     ProductCategoryDetailsFormComponent,
     ProductCategoryDetailsCreateComponent,
     ProductCategoryDetailsUpdateComponent,
-    
-    
     ProductCategoryDetailsIndexComponent,
     ProductCategoryDetailsViewComponent,
+    
     OrderDetailsFormComponent,
     OrderDetailsCreateComponent,
     OrderDetailsUpdateComponent,
@@ -124,8 +140,6 @@ const dbConfig: DBConfig = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // CommonModule,
-
     FormsModule,
     LoadingBarRouterModule,
     NgxIndexedDBModule.forRoot(dbConfig)
