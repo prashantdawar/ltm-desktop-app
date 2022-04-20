@@ -19,7 +19,6 @@ export class CustomerDetailsViewComponent implements OnInit {
 
   customer: CustomerDetails = new CustomerDetails();
   columns: (string | DetailView)[] = [];
-
   constructor(private route: ActivatedRoute, private dbService: NgxIndexedDBService) { }
 
   ngOnInit(): void {

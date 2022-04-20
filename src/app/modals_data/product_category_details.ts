@@ -17,7 +17,7 @@ export class ProductCategoryDetails extends ActiveRecord implements ModelDataFor
     
     
     public product_category_code!: string;  
-
+    public STATUS_ENABLE_OBJ = [['1','Active'],['0', 'Disabled']];
     constructor(){
         super();
     }

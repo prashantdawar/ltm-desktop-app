@@ -1,1 +1,10 @@
-<p>product-category-details-view works!</p>
+<div class="container">
+    <br>
+    <ngx-bootstrap-breadcrumb [breadcrumbItems]="breadcrumbItems"></ngx-bootstrap-breadcrumb>
+    <br>
+    <a class="btn btn-success" [routerLink]="['/product-category-details/update', modelProductCategoryDetails?.product_category_id]">Update</a>
+    <br><br>
+    <ngx-bootstrap-detailview [columns]="columns" [model]="modelProductCategoryDetails">
+
+    </ngx-bootstrap-detailview>
+</div>
