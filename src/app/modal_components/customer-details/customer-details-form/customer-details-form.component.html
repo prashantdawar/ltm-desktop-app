@@ -17,7 +17,7 @@
         
         
         <ngx-bootstrap-form-input name="customer_email" [model] = "model" [attribute] = "'customer_email'" [(ngModel)]="model.customer_email"></ngx-bootstrap-form-input>
-        <ngx-bootstrap-form-select name="customer_status_enable" [model] = "model" [attribute] = "'customer_status_enable'" [(ngModel)]="model.customer_status_enable"></ngx-bootstrap-form-select>
+        <ngx-bootstrap-form-select name="customer_status_enable" [model] = "model" [attribute] = "'customer_status_enable'" [options] = "model.STATUS_ENABLE_OBJ" [(ngModel)]="model.customer_status_enable"></ngx-bootstrap-form-select>
         <ngx-bootstrap-form-input name="customer_address_street" [model] = "model" [attribute] = "'customer_address_street'" [(ngModel)]="model.customer_address_street"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input name="customer_address_tehsil" [model] = "model" [attribute] = "'customer_address_tehsil'" [(ngModel)]="model.customer_address_tehsil"></ngx-bootstrap-form-input>
         

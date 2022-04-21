@@ -37,6 +37,7 @@ required: any = null;
 
 @Input() model: any;
 @Input() attribute!: any;
+@Input() options: any;
 @Input() ngModel: any;
 @Output() ngModelChange = new EventEmitter();
 

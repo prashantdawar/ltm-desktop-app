@@ -1,5 +1,5 @@
 <div class="container">    
-    {{ model | json}} <h1>Create Customer Details</h1>
+    {{ model | json}} <br><br>
     <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
         <ngx-bootstrap-form-input  name="product_category_name" [model] = "model" [attribute] = "'product_category_name'" [(ngModel)]="model.product_category_name"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-textarea name="product_category_description" [model] = "model" [attribute] = "'product_category_description'" [(ngModel)]="model.product_category_description"></ngx-bootstrap-form-textarea>
@@ -8,7 +8,7 @@
         
 
 
-        <ngx-bootstrap-form-input name="product_category_status_enable" [model] = "model" [attribute] = "'product_category_status_enable'" [(ngModel)]="model.product_category_status_enable"></ngx-bootstrap-form-input>      
+        <ngx-bootstrap-form-select name="product_category_status_enable" [model] = "model" [attribute] = "'product_category_status_enable'" [options] = "model.STATUS_ENABLE_OBJ" [(ngModel)]="model.product_category_status_enable"></ngx-bootstrap-form-select>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
     
