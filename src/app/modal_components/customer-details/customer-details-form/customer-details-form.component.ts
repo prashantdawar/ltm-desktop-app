@@ -19,10 +19,17 @@ export class CustomerDetailsFormComponent implements OnInit {
   //https://stackoverflow.com/questions/38571812/how-to-detect-when-an-input-value-changes-in-angular
   @Input('model')
   set modelCustomerDetails(value: CustomerDetails) {
+    // console.log("model updated");
+
+    this.model = new CustomerDetails();
     Object.assign(this.model, value);
+    // console.log(this.model);
+    // console.log(value);
   }
   @Output() modelChange = new EventEmitter<CustomerDetails>();
   constructor() { }
+
+
   ngOnInit(): void {
     console.log(this.model);
     // Object.assign(this.model, this.modelCustomerDetails);
@@ -31,23 +38,23 @@ export class CustomerDetailsFormComponent implements OnInit {
   // ngOnChanges is called earlier than ngOnInit.
   // ngOnChanges(changes: SimpleChanges) {
   //   console.log(changes);
+  //   Object.assign(this.model)
   //   console.log(this.model);
   // }
-
 
 
   onSubmit(form: NgForm): void {
     console.log('submit');
     // this.model.save();
     console.log("form value");
+    
     console.log(form);
     const data = form.value;
     this.model.beforeSave();
     if (form.status == "VALID") {
       this.modelChange.emit(this.model);
       console.log("Event emitted");
-    } else {
-      
+    } else {      
       console.log("Fill Fields");
     }
   }

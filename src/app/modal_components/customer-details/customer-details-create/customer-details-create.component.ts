@@ -42,8 +42,8 @@ export class CustomerDetailsCreateComponent implements OnInit {
   onChange(changes: any){
     console.log(changes);
     console.log(this.model);
-    // this.model = changes;
-    // this.saveModel();
+    this.model = changes;
+    this.saveModel();
   }
 
   saveModel(){
