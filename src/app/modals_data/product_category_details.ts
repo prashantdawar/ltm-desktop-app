@@ -57,8 +57,8 @@ export class ProductCategoryDetails extends ActiveRecord implements ModelDataFor
         return this.product_category_id;
     }
 
-    getClassLabel(): string {
-        let className = this.getClassName();
-        return className.split(/(?=[A-Z])/).join(" ");
-    }
+    // getClassLabel(): string {
+    //     let className = this.getClassName();
+    //     return className.split(/(?=[A-Z])/).join(" ");
+    // }
 }

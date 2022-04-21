@@ -43,4 +43,10 @@ export class ActiveRecord{
     findOne(dbService:NgxIndexedDBService, indexKey: number, model: any = this){
         return dbService.getByKey(model.getStoreName(), indexKey);
     }
+
+    getClassLabel(model: any = this): string {
+        let className = model.getClassName();
+    
+        return className.split(/(?=[A-Z])/).join(" ");
+    }
 }

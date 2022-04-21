@@ -2,8 +2,8 @@ import { ActiveRecord } from "../modals_core/ActiveRecord";
 import { ModelDataFormat } from "../modals_core/ModelDataFormat";
 
 export class CustomerDetails extends ActiveRecord implements ModelDataFormat {
-    public customer_id?: number;
-    public customer_uid?: number;
+    public customer_id!: number;
+    public customer_uid!: number;
     public customer_name!: string ;
     public customer_contact!: string ;
 
@@ -90,10 +90,10 @@ export class CustomerDetails extends ActiveRecord implements ModelDataFormat {
 
     getStoreName() { return 'customer_details'};
     getClassName() { return 'CustomerDetails' };
-    getIndexKey() { return this.customer_id };
+    getIndexKey():number { return this.customer_id };
     
-    getClassLabel() {
-        let className = this.getClassName();
-        return className.split(/(?=[A-Z])/).join(" ");
-    }
+    // getClassLabel() {
+    //     let className = this.getClassName();
+    //     return className.split(/(?=[A-Z])/).join(" ");
+    // }
 }

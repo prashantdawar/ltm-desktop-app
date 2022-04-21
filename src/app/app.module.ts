@@ -103,6 +103,21 @@ const dbConfig: DBConfig = {
       }
     ]
   },
+
+
+
+
+  {
+    store: 'profile_details',
+    storeConfig: { keyPath: 'profile_id', autoIncrement: true },
+    storeSchema: [
+      {
+        name: 'company_name',
+        keypath: 'company_name',
+        options: { unique: false }
+      }
+    ]
+  },
   ]
 };
 
