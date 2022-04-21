@@ -39,6 +39,11 @@ import { OrderDetailsCreateComponent } from './modal_components/order-details/or
 import { OrderDetailsUpdateComponent } from './modal_components/order-details/order-details-update/order-details-update.component';
 import { OrderDetailsViewComponent } from './modal_components/order-details/order-details-view/order-details-view.component';
 import { OrderDetailsIndexComponent } from './modal_components/order-details/order-details-index/order-details-index.component';
+import { ProfileDetailsFormComponent } from './modal_components/profile-details/profile-details-form/profile-details-form.component';
+import { ProfileDetailsIndexComponent } from './modal_components/profile-details/profile-details-index/profile-details-index.component';
+import { ProfileDetailsViewComponent } from './modal_components/profile-details/profile-details-view/profile-details-view.component';
+import { ProfileDetailsCreateComponent } from './modal_components/profile-details/profile-details-create/profile-details-create.component';
+import { ProfileDetailsUpdateComponent } from './modal_components/profile-details/profile-details-update/profile-details-update.component';
 
 const dbConfig: DBConfig = {
   name: 'web-db',
@@ -134,7 +139,12 @@ const dbConfig: DBConfig = {
     OrderDetailsCreateComponent,
     OrderDetailsUpdateComponent,
     OrderDetailsViewComponent,
-    OrderDetailsIndexComponent
+    OrderDetailsIndexComponent,
+    ProfileDetailsFormComponent,
+    ProfileDetailsIndexComponent,
+    ProfileDetailsViewComponent,
+    ProfileDetailsCreateComponent,
+    ProfileDetailsUpdateComponent
   ],
 
   imports: [
