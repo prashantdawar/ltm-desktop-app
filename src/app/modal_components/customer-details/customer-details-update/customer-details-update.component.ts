@@ -28,7 +28,7 @@ export class CustomerDetailsUpdateComponent implements OnInit {
       'urlTo': '/customer-details'
     },
     {
-      'label': 'Create Customer Details',
+      'label': 'Update Customer Details',
       'active': true
     }
     ];
@@ -41,7 +41,7 @@ export class CustomerDetailsUpdateComponent implements OnInit {
 
   onChange(changes: any){
     console.log(changes);
-
+    console.log(this.model);
     this.model = changes;
     this.updateModel();
   }

@@ -2,32 +2,31 @@
     {{ model | json}} <h1>Create Customer Details</h1>
     <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
         <ngx-bootstrap-form-input  name="customer_name" [model] = "model" [attribute] = "'customer_name'" [(ngModel)]="model.customer_name"></ngx-bootstrap-form-input>
-
-
-
         <!-- https://angular.io/api/forms/NgModel -->
         <!-- <ngx-bootstrap-form-input  [model] = "model" [attribute] = "'customer_name'" [(ngModel)]="model.customer_name" [ngModelOptions]="{ name: 'customer_name' }"></ngx-bootstrap-form-input> -->
-        <!-- <ngx-bootstrap-form-input  [name]="'customer_name'" [model] = "model" [attribute] = "'customer_name'" [(ngModel)]="model.customer_name"></ngx-bootstrap-form-input> -->
+        <!-- <ngx-bootstrap-form-input  [name]="'customer_name'" [model] = "model" [attribute] = "'customer_name'" [(ngModel)]="model.customer_name"></ngx-bootstrap-form-input> -->        
+        
+        
         
         <ngx-bootstrap-form-input name="customer_contact" [model] = "model" [attribute] = "'customer_contact'" [(ngModel)]="model.customer_contact"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input name="customer_company_name" [model] = "model" [attribute] = "'customer_company_name'" [(ngModel)]="model.customer_company_name"></ngx-bootstrap-form-input>
-        
-        
         <ngx-bootstrap-form-input name="customer_phone_number" [model] = "model" [attribute] = "'customer_phone_number'" [(ngModel)]="model.customer_phone_number"></ngx-bootstrap-form-input>
+        
         <ngx-bootstrap-form-input name="customer_whatsapp_number" [model] = "model" [attribute] = "'customer_whatsapp_number'" [(ngModel)]="model.customer_whatsapp_number"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input name="customer_gst_number" [model] = "model" [attribute] = "'customer_gst_number'" [(ngModel)]="model.customer_gst_number"></ngx-bootstrap-form-input>
-        <ngx-bootstrap-form-input name="customer_email" [model] = "model" [attribute] = "'customer_email'" [(ngModel)]="model.customer_email"></ngx-bootstrap-form-input>
         
+        
+        <ngx-bootstrap-form-input name="customer_email" [model] = "model" [attribute] = "'customer_email'" [(ngModel)]="model.customer_email"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-select name="customer_status_enable" [model] = "model" [attribute] = "'customer_status_enable'" [(ngModel)]="model.customer_status_enable"></ngx-bootstrap-form-select>
         <ngx-bootstrap-form-input name="customer_address_street" [model] = "model" [attribute] = "'customer_address_street'" [(ngModel)]="model.customer_address_street"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input name="customer_address_tehsil" [model] = "model" [attribute] = "'customer_address_tehsil'" [(ngModel)]="model.customer_address_tehsil"></ngx-bootstrap-form-input>
+        
         <ngx-bootstrap-form-input name="customer_address_district" [model] = "model" [attribute] = "'customer_address_district'" [(ngModel)]="model.customer_address_district"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input name="customer_address_state" [model] = "model" [attribute] = "'customer_address_state'" [(ngModel)]="model.customer_address_state"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-input name="customer_address_pincode" [model] = "model" [attribute] = "'customer_address_pincode'" [(ngModel)]="model.customer_address_pincode"></ngx-bootstrap-form-input>
         <ngx-bootstrap-form-textarea name="customer_notes" [model] = "model" [attribute] = "'customer_notes'" [(ngModel)]="model.customer_notes"></ngx-bootstrap-form-textarea>
         <ngx-bootstrap-form-textarea name="customer_notes_internal" [model] = "model" [attribute] = "'customer_notes_internal'" [(ngModel)]="model.customer_notes_internal"></ngx-bootstrap-form-textarea>
-        
-        
+                
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
     <!-- <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
