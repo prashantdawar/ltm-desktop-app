@@ -1,5 +1,5 @@
-<div class="container">    
-    {{ model | json}} <h1>Create Customer Details</h1>
+<div class="container">  
+    {{ model | json}} <br><br>
     <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
         <ngx-bootstrap-form-input  name="customer_name" [model] = "model" [attribute] = "'customer_name'" [(ngModel)]="model.customer_name"></ngx-bootstrap-form-input>
         <!-- https://angular.io/api/forms/NgModel -->
