@@ -1,1 +1,28 @@
-<p>profile-details-form works!</p>
+<div class="container">
+    {{ model | json}} <br><br>
+    <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
+        <ngx-bootstrap-form-input name="profile_name" [model]="model" [attribute]="'profile_name'" [(ngModel)]="model.profile_name"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-input name="profile_company_name" [model]="model" [attribute]="'profile_company_name'" [(ngModel)]="model.profile_company_name"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-input name="profile_contact_name" [model]="model" [attribute]="'profile_contact_name'" [(ngModel)]="model.profile_contact_name"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-input name="profile_phone_number" [model]="model" [attribute]="'profile_phone_number'" [(ngModel)]="model.profile_phone_number"></ngx-bootstrap-form-input>
+
+
+
+        <ngx-bootstrap-form-input name="profile_whatsapp_number" [model]="model" [attribute]="'profile_whatsapp_number'" [(ngModel)]="model.profile_whatsapp_number"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-input name="profile_email" [model]="model" [attribute]="'profile_email'" [(ngModel)]="model.profile_email"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-input name="profile_address_street" [model]="model" [attribute]="'profile_address_street'" [(ngModel)]="model.profile_address_street"></ngx-bootstrap-form-input>
+        
+        <ngx-bootstrap-form-input name="profile_address_tehsil" [model]="model" [attribute]="'profile_address_tehsil'" [(ngModel)]="model.profile_address_tehsil"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-input name="profile_address_district" [model]="model" [attribute]="'profile_address_district'" [(ngModel)]="model.profile_address_district"></ngx-bootstrap-form-input>
+        
+        
+        <ngx-bootstrap-form-input name="profile_address_pincode" [model]="model" [attribute]="'profile_address_pincode'" [(ngModel)]="model.profile_address_pincode"></ngx-bootstrap-form-input>
+        <ngx-bootstrap-form-textarea name="profile_notes" [model]="model" [attribute]="'profile_notes'" [(ngModel)]="model.profile_notes"></ngx-bootstrap-form-textarea>
+        <ngx-bootstrap-form-textarea name="profile_notes_internal" [model]="model" [attribute]="'profile_notes_internal'" [(ngModel)]="model.profile_notes_internal"></ngx-bootstrap-form-textarea>
+
+
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+</div>

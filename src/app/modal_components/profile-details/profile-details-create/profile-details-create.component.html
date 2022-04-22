@@ -1,1 +1,7 @@
-<p>profile-details-create works!</p>
+<div class="container">
+    <br>
+    <ngx-bootstrap-breadcrumb [breadcrumbItems]="breadcrumbItems"></ngx-bootstrap-breadcrumb>
+    <br>
+    <h1>Create Profile Details</h1>
+    <app-profile-details-form [model]="model" (modelChange)="onChange($event)"></app-profile-details-form>
+</div>

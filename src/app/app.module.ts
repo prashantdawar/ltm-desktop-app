@@ -47,7 +47,7 @@ import { ProfileDetailsUpdateComponent } from './modal_components/profile-detail
 
 const dbConfig: DBConfig = {
   name: 'web-db',
-  version: 3,
+  version: 4,
   objectStoresMeta: [{
     store: 'customer_details',
     storeConfig: { keyPath: 'customer_id', autoIncrement: true },
